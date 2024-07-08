@@ -1,14 +1,7 @@
 ---
+import { type Post } from "../../types/Post";
 import BlogPost from "../../components/BlogPost.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-interface Post {
-  frontmatter: {
-    tags: any;
-    title: string;
-  };
-  url: string;
-}
 
 export async function getStaticPaths() {
   const allPosts = await Astro.glob('../posts/*.md') as any;
