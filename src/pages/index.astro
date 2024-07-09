@@ -1,10 +1,19 @@
 ---
-import Greeting from '../components/Greeting';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SideMenu from "../components/SideMenu.astro";
+import About from "../components/About.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My awesome blog subtitle</h2>
-	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+    <!-- <h2>My awesome blog subtitle</h2>
+    <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+    <h1 class="text-3xl font-bold underline">Hello world!</h1> -->
+
+    <div class="grid grid-cols-6">
+        <div class="bg-blue-100">
+            <SideMenu />
+        </div>
+        <div class="bg-red-100 col-span-5"><About /></div>
+    </div>
 </BaseLayout>
