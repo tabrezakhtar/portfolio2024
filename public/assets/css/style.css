@@ -343,6 +343,21 @@ section {
   margin-bottom: 0;
 }
 
+.section-title ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
+.section-title ul > li {
+  font-style: italic;
+}
+
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
