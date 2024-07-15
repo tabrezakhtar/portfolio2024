@@ -325,7 +325,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #173b6c;
+  color: #008080;
 }
 
 .section-title h2::after {
@@ -364,7 +364,7 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #173b6c;
+  color: #008080;
 }
 
 .about .content ul {
@@ -895,7 +895,7 @@ section {
   padding: 0 0 10px 60px;
   margin-bottom: 20px;
   font-size: 14px;
-  color: #173b6c;
+  color: #008080;
 }
 
 .contact .info .email p {
@@ -1119,4 +1119,22 @@ section {
     width: auto;
     padding-right: 20px 15px;
   }
+}
+
+.tech__badges {
+  display: flex;
+  /* justify-content: center; */
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.tech__badges div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tech__badges div i {
+  color: #008080;
+  font-size: 50px;
 }
