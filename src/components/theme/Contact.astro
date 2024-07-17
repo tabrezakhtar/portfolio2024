@@ -36,8 +36,8 @@
             </div>
   
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form name="contact" class="php-email-form" data-netlify="true">
-                <!-- <input type="hidden" name="form-name" value="contact"> -->
+              <!-- <form name="contact" class="php-email-form" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="name">Name</label>
@@ -58,6 +58,26 @@
                 <div class="text-right">
                   <button class="button" type="submit">Send</button>
                 </div>
+              </form> -->
+              <form name="contact" method="POST" data-netlify="true">
+                <p>
+                  <label>Your Name: <input type="text" name="name" /></label>
+                </p>
+                <p>
+                  <label>Your Email: <input type="email" name="email" /></label>
+                </p>
+                <p>
+                  <label>Your Role: <select name="role[]" multiple>
+                    <option value="leader">Leader</option>
+                    <option value="follower">Follower</option>
+                  </select></label>
+                </p>
+                <p>
+                  <label>Message: <textarea name="message"></textarea></label>
+                </p>
+                <p>
+                  <button type="submit">Send</button>
+                </p>
               </form>
             </div>
   
