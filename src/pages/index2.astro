@@ -1,95 +1,19 @@
 ---
-import Avatar from "../components/theme/Avatar.astro";
-import SideMenu from "../components/theme/SideMenu.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
 import About from "../components/theme/About.astro";
 import Skills from "../components/theme/Skills.astro";
 import Contact from "../components/theme/Contact.astro";
-import Facts from "../components/theme/Facts.astro";
 import Portfolio from "../components/theme/Portfolio.astro";
-import Resume from "../components/theme/Resume.astro";
 import Services from "../components/theme/Services.astro";
 import Testimonials from "../components/theme/Testimonials.astro";
 import BlogList from "../pages/blog.astro";
 ---
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tabrez Akhtar | Freelance Developer in London and Remote</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  <link href="/assets/img/fav.png" rel="icon">
-  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="/assets/css/style.css" rel="stylesheet">
-</head>
-
-<body>
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-  <header id="header">
-    <div class="d-flex flex-column">
-      <Avatar />
-      <SideMenu />
-    </div>
-  </header>
-
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Tabrez Akhtar</h1>
-      <p><span class="typed" data-typed-items="Freelance Web Developer|Node, React, MongoDB and more"></span></p>
-    </div>
-  </section>
-  
-  <main id="main">
-    <About />
-    <!-- <Facts /> -->
-    <Skills />
-    <!-- <Resume /> -->
-    <BlogList />
-    <Portfolio />
-    <Services />
-    <Testimonials />
-    <Contact />
-  </main>
-
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>iPortfolio</span></strong>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        <br />
-        <a href="https://www.flaticon.com/free-icons/rocket" title="rocket icons">Rocket icons created by Freepik - Flaticon</a>
-      </div>
-    </div>
-  </footer>
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <script is:inline src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script is:inline src="/assets/vendor/aos/aos.js"></script>
-  <script is:inline src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script is:inline src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script is:inline src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script is:inline src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script is:inline src="/assets/vendor/typed.js/typed.umd.js"></script>
-  <script is:inline src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script is:inline src="/assets/vendor/php-email-form/validate.js"></script>
-  <script is:inline src="/assets/js/main.js"></script>
-
-</body>
-
-</html>
+<SiteLayout pageTitle="Tabrez Akhtar | Freelance Developer in London and Remote">
+  <About />
+  <Skills />
+  <BlogList />
+  <Portfolio />
+  <Services />
+  <Testimonials />
+  <Contact />
+</SiteLayout>
