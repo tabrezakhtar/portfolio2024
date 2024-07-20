@@ -1,18 +1,22 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+// import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
-import "../styles/global.css";
+// import "../styles/global.css";
 const pageTitle = "My Astro Learning Blog";
 const allPosts = await Astro.glob("./posts/*.md");
 ---
-<BaseLayout pageTitle={pageTitle}>
-    <h1>My Astro Learning Blog</h1>
-    <p>This is where I will post about my journey learning Astro.</p>
-    <ul>
-        {
-            allPosts.map(post => 
-                <BlogPost title={post.frontmatter.title} url={post.url}/>
-            )
-        }
-    </ul>
-</BaseLayout>
+<section id="bloglist" class="bloglist">
+    <div class="container">
+        <div class="section-title">
+            <h2>Recent Blogs</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+        <ul>
+            {
+                allPosts.map(post => 
+                    <BlogPost title={post.frontmatter.title} url={post.url}/>
+                )
+            }
+        </ul>
+    </div>
+</section>
