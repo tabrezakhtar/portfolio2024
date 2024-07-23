@@ -1,0 +1,19 @@
+---
+import BlogPost from "../../components/BlogPost.astro";
+const allPosts = await Astro.glob("../../pages/posts/*.md");
+---
+<nav id="navbar" class="nav-menu navbar">
+    <ul>
+        <li>
+            <a href="/" class="nav-link scrollto active">
+                <i class="bx bx-home"></i> <span>Home</span>
+            </a>
+        </li>
+
+        {
+            allPosts.map(post => 
+                <BlogPost title={post.frontmatter.title} url={post.url}/>
+            )
+        }
+    </ul>
+</nav>

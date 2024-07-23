@@ -1,9 +1,6 @@
 ---
-// import BaseLayout from "../layouts/BaseLayout.astro";
-import BlogPost from "../components/BlogPost.astro";
-// import "../styles/global.css";
-const pageTitle = "My Astro Learning Blog";
-const allPosts = await Astro.glob("./posts/*.md");
+import BlogPost from "../../components/BlogPost.astro";
+const allPosts = await Astro.glob("../../pages/posts/*.md");
 ---
 <section id="bloglist" class="bloglist">
     <div class="container">
