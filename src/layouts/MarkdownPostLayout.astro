@@ -5,15 +5,15 @@ const { frontmatter } = Astro.props;
 
 <BlogLayout pageTitle={frontmatter.title}>
 
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>{frontmatter.title}</h1>
-      <p><span>{frontmatter.description}</span></p>
+  <section id="hero2" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container2" data-aos="fade-in">
+      <!-- <h1>{frontmatter.title}</h1>
+      <p><span>{frontmatter.description}</span></p> -->
     </div>
   </section>
 
-  <section id="blog" class="blog">
-    <div class="container">
+  <section id="blog" class="blog" style="padding-top:30px">
+    <div class="container" style="margin-left:0px">
       <div class="section-title">
         <h2>{frontmatter.title}</h2>
         <p><em>{frontmatter.description}</em></p>
@@ -33,3 +33,7 @@ const { frontmatter } = Astro.props;
     </div>
   </section>
 </BlogLayout>
+
+<style>
+
+</style>
