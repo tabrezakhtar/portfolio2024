@@ -5,7 +5,7 @@ const { frontmatter } = Astro.props;
 
 <BlogLayout pageTitle={frontmatter.title}>
 
-  <section id="hero2" class="d-flex flex-column justify-content-center align-items-center">
+  <section id="hero2" class="d-flex flex-column justify-content-center align-items-center" style={`background: url(${frontmatter.image.url}) top center;`}>
     <div class="hero-container2" data-aos="fade-in">
       <!-- <h1>{frontmatter.title}</h1>
       <p><span>{frontmatter.description}</span></p> -->
@@ -33,7 +33,3 @@ const { frontmatter } = Astro.props;
     </div>
   </section>
 </BlogLayout>
-
-<style>
-
-</style>
