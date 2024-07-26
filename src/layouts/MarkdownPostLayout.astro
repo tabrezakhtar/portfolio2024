@@ -19,10 +19,12 @@ const { frontmatter } = Astro.props;
         <p><em>{frontmatter.description}</em></p>
       </div>
 
-      <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+      <div style="color: #008080;">
+        <p><b><i>{frontmatter.pubDate.toString().slice(0, 10)}</i></b></p>
 
-      <p>Written by: {frontmatter.author}</p>
-
+        <p><b>Written by: {frontmatter.author}</b></p>
+      </div>
+      <br />
       <img
         src={frontmatter.image.url}
         width="300"
