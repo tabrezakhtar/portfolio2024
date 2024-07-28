@@ -243,6 +243,7 @@ h6 {
   height: 100vh;
   background: url("../img/pc.webp") top center;
   background-size: cover;
+  background-color: black;
 }
 
 #hero:before {
