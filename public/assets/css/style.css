@@ -912,6 +912,10 @@ section {
 --------------------------------------------------------------*/
 .contact {
   padding-bottom: 0px;
+  width: 100%;
+  padding: 30px;
+  /* background: #fff; */
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 
 .contact .info {
@@ -983,13 +987,6 @@ section {
 .contact .info .phone:hover i {
   background: #008080;
   color: #fff;
-}
-
-.contact  {
-  width: 100%;
-  padding: 30px;
-  background: #fff;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 
 .contact  .form-group {
