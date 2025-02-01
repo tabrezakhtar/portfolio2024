@@ -10,7 +10,7 @@ npm create astro@latest -- --template minimal
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files::
+Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
