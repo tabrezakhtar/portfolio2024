@@ -1,8 +1,26 @@
 ---
-const { url, title } = Astro.props;
+const { url, title, pubDate } = Astro.props;
+
+const date = new Date(pubDate);
+const result = date.toDateString();
 ---
+<style>
+    .blog-rows {
+        padding: 10px 15px 0px 15px;
+    }
+    .date-wrapper {
+        padding: 0px 0px 0px 45px;
+        color:rgb(85, 85, 85);
+        font-size: small;
+    }
+</style>
 
 <li>
-    <p><a href={url}>{title}</a></p>
-    
+    <a href={url} class="nav-link scrollto active blog-rows">
+        <i class="bx bx-chevron-right"></i>
+        <span>
+            {title}
+        </span>
+    </a>
+    <span class="date-wrapper">{result}</span>
 </li>

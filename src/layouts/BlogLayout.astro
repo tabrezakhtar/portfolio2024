@@ -4,7 +4,7 @@ import SideMenuBlog from "../components/theme/SideMenuBlog.astro";
 const { pageTitle } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #000c1ff5;">
 
 <head>
   <meta charset="utf-8">
@@ -14,7 +14,11 @@ const { pageTitle } = Astro.props;
   <meta content="" name="keywords">
   <link href="/assets/img/fav.png" rel="icon">
   <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
   <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -22,6 +26,7 @@ const { pageTitle } = Astro.props;
   <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/blog.css" rel="stylesheet">
 </head>
 
 <body>
@@ -32,13 +37,6 @@ const { pageTitle } = Astro.props;
       <SideMenuBlog />
     </div>
   </header>
-
-  <!-- <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Tabrez Akhtar</h1>
-      <p><span class="typed" data-typed-items="Freelance Web Developer|Node, React, MongoDB and more"></span></p>
-    </div>
-  </section> -->
   
   <main id="main">
     <slot />
@@ -73,7 +71,6 @@ const { pageTitle } = Astro.props;
   <script is:inline src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script is:inline src="/assets/vendor/php-email-form/validate.js"></script>
   <script is:inline src="/assets/js/main.js"></script>
-
 </body>
 
 </html>
