@@ -32,7 +32,7 @@ Instead of Redux, I wanted to just use the Context API which is built into React
 I converted `MenuReducer` first as its the smallest reducer.
 
 *This is what looked like before with Redux:*
-<pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">// menuReducer.js</span>
+<pre style="font-family:monospace;font-size:medium;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">// menuReducer.js</span>
 <span style="color: rgb(255, 123, 114); font-weight: 400;">export</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> initialState = {
   <span style="color: rgb(121, 192, 255); font-weight: 400;">selected</span>: <span style="color: rgb(121, 192, 255); font-weight: 400;">false</span>
 }
@@ -50,7 +50,7 @@ I converted `MenuReducer` first as its the smallest reducer.
 }
 </pre>
 *This is afterwards with the Context API:*
-<pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">//menuContext.js</span>
+<pre style="font-family:monospace;font-size:medium;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">//menuContext.js</span>
 <span style="color: rgb(255, 123, 114); font-weight: 400;">import</span> { createContext, useContext, useState } <span style="color: rgb(255, 123, 114); font-weight: 400;">from</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"react"</span>;
 <span style="color: rgb(255, 123, 114); font-weight: 400;">import</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">PropTypes</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">from</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"prop-types"</span>;
 
@@ -89,6 +89,8 @@ I converted `MenuReducer` first as its the smallest reducer.
 <span style="color: rgb(255, 123, 114); font-weight: 400;">export</span> { <span style="color: rgb(210, 168, 255); font-weight: 400;">MenuProvider</span>, <span style="color: rgb(210, 168, 255); font-weight: 400;">MenuContext</span>, useMenu };</pre>
 
 The state is saved in the Provider, then the individual functions that handle the state are exported.  This maintains the same pattern as before, and rather than dispatching actions, the exported function can be invoked from any component that utilizes the context.
+
+Its definitely more code than before, but the hook to use the context is included in the new code.
 
 Once I got this reducer converted, the pattern was just replicated to the other reducers.
 <br /><br />
