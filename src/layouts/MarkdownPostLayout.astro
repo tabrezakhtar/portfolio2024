@@ -1,16 +1,11 @@
 ---
 import BlogLayout from "./BlogLayout.astro";
 const { frontmatter } = Astro.props;
+
+const date = new Date(frontmatter.pubDate);
+const result = date.toDateString();
 ---
 <BlogLayout pageTitle={frontmatter.title}>
-
-  {/* <section id="hero2" class="d-flex flex-column justify-content-center align-items-center" style={`background: url(${frontmatter.image.url}) top center;`}>
-    <div class="hero-container2" data-aos="fade-in">
-      <!-- <h1>{frontmatter.title}</h1>
-      <p><span>{frontmatter.description}</span></p> -->
-    </div>
-  </section> */}
-
   <section id="blog" class="blog" style="padding-top:30px; color: white; background-color: #000c1ff5;">
     <div class="container" style="margin-left:0px">
       <div class="section-title">
@@ -19,18 +14,19 @@ const { frontmatter } = Astro.props;
       </div>
 
       <div style="color: #008080;">
-        <p><b><i>{frontmatter.pubDate.toString().slice(0, 10)}</i></b></p>
+        <p><b><i>{result}</i></b></p>
 
         <p><b>Written by: {frontmatter.author}</b></p>
       </div>
-      <br />
-      <div style={{
+      {/* <br /> */}
+      {/* <div style={{
         backgroundImage: `url(${frontmatter.image.url})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',
-        height: '600px'
-      }}></div>
+        height: '600px',
+        marginBottom: '30px'
+      }}></div> */}
 
       <div class="blog-content">
       <slot />

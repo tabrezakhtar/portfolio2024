@@ -10,7 +10,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
   color: #272829;
 }
 
@@ -22,15 +22,6 @@ a {
 a:hover {
   color: #37b3ed;
   text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -97,7 +88,6 @@ h6 {
   font-weight: 600;
   -moz-text-align-last: center;
   text-align-last: center;
-  font-family: "Roboto", sans-serif;
 }
 
 #header .profile h1 a,
@@ -275,7 +265,6 @@ h6 {
   color: #fff;
   margin-bottom: 50px;
   font-size: 26px;
-  font-family: "Roboto", sans-serif;
 }
 
 #home p span {
@@ -321,7 +310,6 @@ h6 {
   color: #fff;
   margin-bottom: 50px;
   font-size: 22px;
-  font-family: "Roboto", sans-serif;
 }
 
 #hero2 p span {
@@ -477,7 +465,6 @@ section {
 .facts .count-box p {
   padding: 15px 0 0 0;
   margin: 0 0 0 60px;
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: #122f57;
 }
@@ -488,7 +475,6 @@ section {
   margin-top: 20px;
   color: #122f57;
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
   transition: ease-in-out 0.3s;
 }
 
@@ -512,7 +498,6 @@ section {
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: "Roboto", sans-serif;
   color: #050d18;
 }
 
@@ -556,7 +541,6 @@ section {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
   color: #050d18;
   margin-bottom: 10px;
 }

@@ -1,6 +1,13 @@
+html, body {
+  font-family: "Roboto Mono", monospace;
+}
+
 .blog-content {
-  font-family: Arial, sans-serif;
   line-height: 1.6;
+}
+.blog-content img {
+  margin: 1em 0;
+  padding: 0.5em;
 }
 
 .blog-content h1 {
@@ -27,6 +34,10 @@
   text-decoration: none;
 }
 
+.blog-content a {
+  color: #37b3ed;
+}
+
 .blog-content a:hover {
   text-decoration: underline;
 }
@@ -35,6 +46,7 @@
 .blog-content ol {
   margin: 1em 0;
   padding-left: 1.5em;
+  list-style-type: disc;
 }
 
 .blog-content li {
