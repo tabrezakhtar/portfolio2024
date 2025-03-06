@@ -88,9 +88,9 @@ I converted `MenuReducer` first as its the smallest reducer.
 
 <span style="color: rgb(255, 123, 114); font-weight: 400;">export</span> { <span style="color: rgb(210, 168, 255); font-weight: 400;">MenuProvider</span>, <span style="color: rgb(210, 168, 255); font-weight: 400;">MenuContext</span>, useMenu };</pre>
 
-The state is saved in the Provider, then the individual functions that handle the state are exported.  This maintains the same pattern as before, and rather than dispatching actions, the exported function can be invoked from any component that utilizes the context.
+The state is saved in the Provider, then the individual functions that handle the state are exported.  This maintains the same pattern as before, except instead of dispatching actions, the exported function can be invoked from any component that utilizes the context.
 
-Its definitely more code than before, but the hook to use the context is included in the new code.
+There is more code here than before, but I'm ok with this as Redux has been removed.  Also the hook to use the context is included in the new code.
 
 Once I got this reducer converted, the pattern was just replicated to the other reducers.
 <br /><br />
