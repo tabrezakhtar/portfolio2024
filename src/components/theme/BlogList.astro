@@ -1,17 +1,17 @@
 ---
-import BlogPost from "../../components/BlogPost.astro";
+import BlogPost2 from "../../components/BlogPost2.astro";
 const allPosts = await Astro.glob("../../pages/posts/*.md");
 ---
 <section id="bloglist" class="bloglist">
     <div class="container">
         <div class="section-title">
             <h2>Recent Blogs</h2>
-            <p>Tech related things I find interesting here.</p>
+            <p>Some of my thoughts on interesting tech things here.</p>
         </div>
-        <ul>
+        <ul class="nav-menu navbar">
             {
                 allPosts.map(post => 
-                    <BlogPost title={post.frontmatter.title} url={post.url} pubDate={post.frontmatter.pubDate}/>
+                    <BlogPost2 title={post.frontmatter.title} url={post.url} pubDate={post.frontmatter.pubDate}/>
                 )
             }
         </ul>
