@@ -432,6 +432,10 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
+.about .link {
+  font-weight: bold;
+  color: #008080;
+}
 
 /*--------------------------------------------------------------
 # Facts
