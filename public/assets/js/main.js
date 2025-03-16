@@ -244,10 +244,4 @@ window.addEventListener('load', () => {
    * Initiate Pure Counter 
    */
   new PureCounter();
-
-  mixpanel.init("4048cf8d4eec3927d8d2fb873535a99f", {
-    debug: true,
-    track_pageview: true,
-    persistence: "localStorage",
-  });
 })()
