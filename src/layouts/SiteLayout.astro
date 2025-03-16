@@ -35,7 +35,7 @@ const { pageTitle } = Astro.props;
       track_pageview: true,
       persistence: "localStorage",
     });
-    mixpanel.track("Page View");
+    mixpanel.track("Page View", { "Page URL": window.location.href });
   </script>
 </head>
 
