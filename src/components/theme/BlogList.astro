@@ -8,7 +8,7 @@ const allPosts = await Astro.glob("../../pages/posts/*.md");
             <h2>Recent Blogs</h2>
             <p>Some of my thoughts on interesting tech things here.</p>
         </div>
-        <ul class="nav-menu navbar">
+        <ul class="nav-menu navbar" style="justify-content: flex-start;">
             {
                 allPosts.map(post => 
                     <BlogPost2 title={post.frontmatter.title} url={post.url} pubDate={post.frontmatter.pubDate}/>
