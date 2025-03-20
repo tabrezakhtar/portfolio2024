@@ -35,6 +35,8 @@ const { pageTitle } = Astro.props;
       persistence: "localStorage",
     });
     mixpanel.track("Page View", { "Page URL": window.location.href });
+    const userAgent = navigator.userAgent;
+    mixpanel.track("Event Name", {"full_user_agent": userAgent});
   </script>
 </head>
 
