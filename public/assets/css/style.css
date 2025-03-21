@@ -167,9 +167,9 @@ a:hover {
   display: flex;
   align-items: center;
   color: #a8a9b4;
-  /* padding: 12px 15px; */
+  padding: 12px 15px;
   margin-bottom: 8px;
-  /* transition: 0.3s; */
+  transition: 0.3s;
   font-size: 15px;
 }
 
