@@ -141,6 +141,6 @@ And that's it!  To deploy, I connected the GitHub repo to Netlify and it deploye
   Your browser does not support the video tag.
 </video>
 
-I think deploying a web app this way is fine for low-traffic web applications and also for backends of mobile apps. The downside is that it won't work for servers that need to be always on, e.g. if WebSockets are required.
+I think hosting an entire Express API this way is fine for low-traffic/hobby web applications.  It's nice to have the choice as well to deploy to a web server later on without needing to modify the code. The downside is that it won't work for servers that need to be always on, e.g. if WebSockets are required.
 
 While I was creating the demo app, I discovered [Hono](https://hono.dev/), a framework built specifically for edge computing environments.  There is an excellent video on using HonoJS [here](https://www.youtube.com/watch?v=hMcE6E8JjXA).
