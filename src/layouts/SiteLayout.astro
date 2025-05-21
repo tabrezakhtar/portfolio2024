@@ -33,6 +33,7 @@ const { pageTitle } = Astro.props;
     mixpanel.init("4048cf8d4eec3927d8d2fb873535a99f", {
       disable_persistence: true,
       autotrack: false,
+      persistence: 'none'
     });
     const userAgent = navigator.userAgent;
     mixpanel.track("Page View", { "Page URL": window.location.href, "full_user_agent": userAgent });
