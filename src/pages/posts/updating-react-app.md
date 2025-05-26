@@ -50,7 +50,7 @@ I converted `MenuReducer` first as its the smallest reducer.
 }
 </pre>
 *This is afterwards with the Context API:*
-<pre style="font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">//menuContext.js</span>
+<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;font-size:medium;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; ">//menuContext.js</span>
 <span style="color: rgb(255, 123, 114); font-weight: 400;">import</span> { createContext, useContext, useState } <span style="color: rgb(255, 123, 114); font-weight: 400;">from</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"react"</span>;
 <span style="color: rgb(255, 123, 114); font-weight: 400;">import</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">PropTypes</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">from</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"prop-types"</span>;
 
