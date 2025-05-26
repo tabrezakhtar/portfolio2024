@@ -32,3 +32,16 @@
         </li>
     </ul>
 </nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const body = document.body;
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            body.classList.remove('mobile-nav-active');
+        });
+    });
+});
+</script>
