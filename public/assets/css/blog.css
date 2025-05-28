@@ -79,3 +79,12 @@ html, body {
 .blog-content th {
   font-weight: bold;
 }
+
+.astro-code.material-theme-darker {
+  border: 2px solid rgb(39 128 129) !important;
+  padding: 10px;
+  font-family: monospace !important;
+  color: rgb(201, 209, 217) !important;
+  background-color: rgb(13, 17, 23) !important;
+  font-weight: 400 !important;
+}

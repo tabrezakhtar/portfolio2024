@@ -1,5 +1,6 @@
 ---
 import BlogLayout from "./BlogLayout.astro";
+import CommentForm from "../components/CommentForm.astro";
 const { frontmatter } = Astro.props;
 
 const date = new Date(frontmatter.pubDate);
@@ -29,8 +30,11 @@ const result = date.toDateString();
       }}></div> */}
 
       <div class="blog-content">
-      <slot />
+        <slot />
       </div>
+    </div>
+    <div class="comments-section">
+      {/* <CommentForm /> */}
     </div>
   </section>
 </BlogLayout>
