@@ -10,7 +10,7 @@ tags: ["Node", "Express", "Netlify"]
 
 I was adding CSS animations to a web app I'm working on and I came across this annoying issue.
 
-<video width="550px" controls loop>
+<video width="550px" controls>
   <source src="/assets/video/grid1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -19,14 +19,14 @@ The tile is being clipped under its container.  At first I thought it was just z
 
 After some experimenting, I noticed that setting the tile to <code>position: absolute</code> made it appear above everything, and the transition worked correctly.
 
-<video width="550px" controls loop>
+<video width="550px" controls>
   <source src="/assets/video/absolute.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 Once I knew that positioning absolutely would work, I decided to do it dynamically with JavaScript.  On hover, I get the coords and size of the current tile.  Then I absolutely position a copy of the tile over it.  This is because setting the original tile to absolute will cause it to move out of the normal document flow, and the other tiles will move up.  Once its positioned, I added the CSS animation. Then I delete the tile copy when the mouse is hovered out.
 
-<video width="550px" controls loop>
+<video width="550px" controls>
   <source src="/assets/video/grid2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
