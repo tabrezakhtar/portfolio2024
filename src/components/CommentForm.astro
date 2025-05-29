@@ -1,7 +1,8 @@
 ---
-// No script needed for this static form
+const { frontmatter } = Astro.props;
 ---
 <section id="comments">
+  <h3>{frontmatter.title}</h3>
   <h2>Leave a Comment</h2>
   <form name="comment" method="POST" data-netlify="true">
     <input type="hidden" name="form-name" value="comment" />
