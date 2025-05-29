@@ -65,4 +65,4 @@ tiles.forEach(tile => {
   });
 });
 ```
-I know this is a little bit of a hacky solution, but I tucked it away into a component and moved on with building the rest of the app🤷  Feel free to send me a PR if theres another way to do this!  The source is [here](https://github.com/tabrezakhtar/CSS-Animation).
+I know this is a bit of a hacky solution, but I tucked it away into a component and moved on with building the rest of the app🤷  Feel free to send me a PR if theres another way to do this!  The source is [here](https://github.com/tabrezakhtar/CSS-Animation).
