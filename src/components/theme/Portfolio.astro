@@ -1,3 +1,67 @@
+---
+const projects = [
+  {
+    title: "Guitar Explorer",
+    images: [
+      "/assets/img/guitar-db.png",
+      "/assets/img/guitar-db2.png"
+    ],
+    site: "https://guitar-db.herokuapp.com/",
+    source: "https://gitlab.com/tabrezakhtar/guitar-db",
+    description: [
+      "One of my hobbies is guitar playing, and I enjoy window shopping for my next guitar. This is my attempt at creating a site with an easy to use filter, that works fast and seamlessly. The main section of the page displays the guitars in a modal rather than opening up a new page. This makes the guitars easier to browse and maintains the current filter.",
+      "The API is built with Node/Express/Mongoose and MongoDB as the database. I found that building the filter was easier with MongoDB rather than a relational database because it accepts JSON to query the database. This made it trivial to build the query client-side and send it to the API.",
+      "The front-end is React/Redux and Sass. Usually I would reach for Bootstrap for this kind of project but I wanted to build the CSS from scratch and design my own responsive theme."
+    ],
+    tech: [
+      { icon: "bx bxl-javascript", name: "JavaScript" },
+      { icon: "bx bxl-nodejs", name: "NodeJS" },
+      { icon: "bx bxl-mongodb", name: "MongoDB" },
+      { icon: "bx bxl-react", name: "React" },
+      { icon: "bx bxl-sass", name: "Sass" },
+      { icon: "bx bxl-html5", name: "HTML5" },
+      { icon: "bx bxl-git", name: "Git" },
+      { icon: "bx bxl-visual-studio", name: "VSCode" }
+    ]
+  },
+    {
+    title: "Simple Weight Loss Tracker",
+    images: [
+      "/assets/img/weightloss.png"
+    ],
+    site: "http://www.simpleweightlosstracker.co.uk",
+    description: [
+      "I'm currently on a weight loss journey so I wrote this to keep track of my progress.  There are plenty of weight loss trackers out there, but I wanted to build one that was private and ad free.",
+      "The app is built with plain JavaScript and Chart.js.  I chose to build inside Astro.js for convenience as it already has routing and markdown support built-in."
+    ],
+    tech: [
+      { icon: "bx bxl-javascript", name: "JavaScript" },
+      { icon: "bx bxl-html5", name: "HTML5" },
+      { icon: "bx bxl-git", name: "Git" },
+      { icon: "bx bxl-visual-studio", name: "VSCode" }
+    ]
+  },
+  {
+    title: "whatsthescore",
+    images: [
+      "/assets/img/whatsthescore2025.png"
+    ],
+    site: "https://whatsthescore.netlify.app/",
+    source: "https://github.com/tabrezakhtar/whatsthescore-web",
+    description: [
+      "I built this app as a way of keeping the score during a tennis match. Sometimes during a long match, its easy to forget! The UI is designed to be as simple as possible, with only 2 buttons to control the score.",
+      "To build this project, I used React with the Context API and styled it using BeerCSS for a Material theme. The module to model the tennis score is built with a Test-Driven approach using Jest, since tennis scoring has a lot of edge cases that can easily slip through without tests."
+    ],
+    tech: [
+      { icon: "bx bxl-javascript", name: "JavaScript" },
+      { icon: "bx bxl-react", name: "React" },
+      { icon: "bx bxl-html5", name: "HTML5" },
+      { icon: "bx bxl-git", name: "Git" },
+      { icon: "bx bxl-visual-studio", name: "VSCode" }
+    ]
+  }
+];
+---
 <section id="projects" class="projects section-bg">
   <div class="container">
     <div class="section-title">
@@ -7,139 +71,47 @@
         combine some of my other interests with coding.
       </p>
     </div>
-
-    <div class="row" data-aos="fade-up" data-aos-delay="100">
-      <div class="project__container">
-        <div class="lhs">
-          <a href="https://guitar-db.herokuapp.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/img/guitar-db.png" alt="Screenshot of Guitar Explorer main page"/></a>
-          <a href="https://guitar-db.herokuapp.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/img/guitar-db2.png" alt="Screenshot of Guitar Explorer with modal window of guitar"/></a>
-        </div>
-        <div class="rhs">
-          <span>
-            <a class="link h4" href="https://guitar-db.herokuapp.com/" target="_blank" rel="noopener noreferrer">Guitar Explorer</a>
-          </span>
-          <p>
-            One of my hobbies is guitar playing, and I enjoy window shopping for
-            my next guitar. This is my attempt at creating a site with an easy to
-            use filter, that works fast and seamlessly. The main section of the
-            page displays the guitars in a modal rather than opening up a new
-            page. This makes the guitars easier to browse and maintains the
-            current filter.
-          </p>
-          <p>
-            The API is built with Node/Express/Mongoose and MongoDB as the
-            database. I found that building the filter was easier with MongoDB
-            rather than a relational database because it accepts JSON to query the
-            database. This made it trivial to build the query client-side and send
-            it to the API.
-          </p>
-          <p>
-            The front-end is React/Redux and Sass. Usually I would reach for
-            Bootstrap for this kind of project but I wanted to build the CSS from
-            scratch and design my own responsive theme.
-          </p>
-          
-          <div class="tech__badges">
-            <div data-aos="flip-left">
-                <i class='bx bxl-javascript'></i>
-                <span>JavaScript</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-nodejs'></i>
-                <span>NodeJS</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-mongodb'></i>
-                <span>MongoDB</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-react'></i>
-                <span>React</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-sass'></i>
-                <span>Sass</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-html5'></i>
-                <span>HTML5</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-git'></i>
-                <span>Git</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-visual-studio'></i>
-                <span>VSCode</span>
-            </div>
+    {projects.map(project => (
+      <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class="project__container">
+          <div class="lhs">
+            {project.images.map(img => (
+              <a href={project.site} target="_blank" rel="noopener noreferrer">
+                <img src={img} alt={`Screenshot of ${project.title}`} />
+              </a>
+            ))}
           </div>
-          
-          <p>
+          <div class="rhs">
             <span>
-              source: <a class="link" href="https://gitlab.com/tabrezakhtar/guitar-db" target="_blank" rel="noopener noreferrer">https://gitlab.com/tabrezakhtar/guitar-db</a>
+              <a class="link h4" href={project.site} target="_blank" rel="noopener noreferrer">{project.title}</a>
             </span>
-            <span>
-              site: <a class="link" href="https://guitar-db.herokuapp.com"target="_blank" rel="noopener noreferrer">https://guitar-db.herokuapp.com</a>
-            </span>
-          </p>
+            {project.description.map(paragraph => (
+              <p>{paragraph}</p>
+            ))}
+            <div class="tech__badges">
+              {project.tech.map(t => (
+                <div data-aos="flip-left">
+                  <i class={t.icon}></i>
+                  <span>{t.name}</span>
+                </div>
+              ))}
+            </div>
+            <p>
+              {project.source && (
+                <span>
+                  source: <a class="link" href={project.source} target="_blank" rel="noopener noreferrer">{project.source}</a>
+                </span>
+              )}
+              {project.site && (
+                <span>
+                  site: <a class="link" href={project.site} target="_blank" rel="noopener noreferrer">{project.site}</a>
+                </span>
+              )}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="row" data-aos="fade-up" data-aos-delay="100">
-      <div class="project__container">
-        <div class="lhs">
-          <a href="https://whatsthescore.netlify.app/" target="_blank" rel="noopener noreferrer">
-            <img src="/assets/img/whatsthescore2025.png" alt="Screenshot of whatsthescore" />
-          </a>
-        </div>
-
-        <div class="rhs">
-          <span>
-            <a class="link h4" href="https://whatsthescore.netlify.app/" target="_blank" rel="noopener noreferrer">whatsthescore</a></span><p>
-            I built this app as a way of keeping the score during a tennis match.  Sometimes during a long match, its easy to forget! The UI is designed to be as simple as possible, with only 2 buttons to control the score.
-          </p>
-          <p>
-            To build this project, I used React with the Context API and styled it using <a href="https://www.beercss.com/">BeerCSS</a> for a Material theme. The module to model the tennis score is built with a Test-Driven approach using Jest, since tennis scoring has a lot of edge cases that can easily slip through without tests.
-          </p>
-          
-          <div class="tech__badges">
-            {/* <img src="/icons/javascript.svg" alt="JavaScript logo" title="JavaScript"/>
-            <img src="/icons/react.svg" alt="React logo" title="ReactJS"/>
-            <img src="/icons/sass.svg" alt="Sass logo" title="Sass"/>
-            <img src="/icons/html.svg" alt="HTML5 logo" title="HTML5"/>
-            <img src="/icons/git.svg" alt="Git logo" title="Git"/>
-            <img src="/icons/vs.svg" alt="VSCode logo" title="VSCode"/>
-            <img src="/icons/jest.svg" alt="Jest logo" title="Jest"/> */}
-            <div data-aos="flip-left">
-                <i class='bx bxl-javascript'></i>
-                <span>JavaScript</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-react'></i>
-                <span>React</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-html5'></i>
-                <span>HTML5</span>
-            </div>            
-            <div data-aos="flip-left">
-                <i class='bx bxl-git'></i>
-                <span>Git</span>
-            </div>
-            <div data-aos="flip-left">
-                <i class='bx bxl-visual-studio'></i>
-                <span>VSCode</span>
-            </div>
-          </div>
-          <p>
-            <span>source: <a class="link" href="https://github.com/tabrezakhtar/whatsthescore-web" target="_blank" rel="noopener noreferrer">https://github.com/tabrezakhtar/whatsthescore-web</a>
-            </span>
-            <span>site: <a class="link" href="https://whatsthescore.netlify.app/" target="_blank" rel="noopener noreferrer">https://whatsthescore.netlify.app/</a></span>
-          </p>
-        </div>
-      </div>
-    </div>
+    ))}
   </div>
 </section>
 
