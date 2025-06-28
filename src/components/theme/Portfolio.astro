@@ -135,7 +135,13 @@ const projects = [
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center">
-            <img src={img} alt={`Screenshot of ${project.title}`} class="img-fluid" />
+            <img 
+              src={img} 
+              alt={`Screenshot of ${project.title}`} 
+              class="img-fluid" 
+              data-bs-dismiss="modal"
+              style="cursor: pointer;"
+            />
           </div>
         </div>
       </div>
