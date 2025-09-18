@@ -1,0 +1,78 @@
+---
+---
+<div id="cookieAlert" class="position-fixed bottom-0 end-0 p-3" style="z-index: 11; display: none; max-width: 350px; width: 100%;">
+  <div class="toast show bg-dark bg-opacity-75 text-white" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-dark bg-opacity-75 text-white border-bottom border-secondary py-2 px-2">
+      <strong class="me-auto">Cookie Notice🍪</strong>
+      <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="toast" aria-label="Close" style="font-size:1rem;"></button>
+    </div>
+    <div class="toast-body py-2 px-2">
+      <p class="mb-2" style="font-size:0.95rem;">Allow cookies on this website?</p>
+      <div class="mt-1 pt-1 border-top border-secondary d-flex justify-content-end gap-2">
+        <button type="button" id="rejectCookieBtn" class="btn btn-outline-light btn-sm py-1 px-2">Reject</button>
+        <button type="button" id="acceptCookieBtn" class="btn btn-primary btn-sm py-1 px-2">Accept</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+@media (max-width: 576px) {
+  #cookieAlert {
+    right: 0 !important;
+    left: auto !important;
+    max-width: 95vw;
+    padding: 0.5rem !important;
+  }
+  #cookieAlert .toast-header, #cookieAlert .toast-body {
+    padding: 0.5rem !important;
+  }
+  #cookieAlert p {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  #cookieAlert button {
+    font-size: 0.9rem !important;
+    padding: 0.25rem 0.75rem !important;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cookieAlert = document.getElementById('cookieAlert');
+    const acceptCookieBtn = document.getElementById('acceptCookieBtn');
+    const rejectCookieBtn = document.getElementById('rejectCookieBtn');
+    
+    // Check if user has already made a choice
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    // Only show the alert if no choice has been made
+    if (!cookieConsent && cookieAlert) {
+      cookieAlert.style.display = 'block';
+    }
+    
+    // Handle accept button
+    if (acceptCookieBtn && cookieAlert) {
+      acceptCookieBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieAlert.style.display = 'none';
+        
+        // Enable Mixpanel tracking using global function
+        // @ts-ignore - Custom global function
+        if (typeof window.loadMixpanelTracking === 'function') {
+          // @ts-ignore - Custom global function
+          window.loadMixpanelTracking();
+        }
+      });
+    }
+    
+    // Handle reject button
+    if (rejectCookieBtn && cookieAlert) {
+      rejectCookieBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'rejected');
+        cookieAlert.style.display = 'none';
+      });
+    }
+  });
+</script>
