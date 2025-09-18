@@ -15,7 +15,7 @@ I created this simple example to evaluate whether they could work for an Express
 **Spoiler:**
 Here is the completed API and example app:
 
-[Completed API Demo](https://remarkable-choux-9b8aab.netlify.app/.netlify/functions/server/recipes/)
+[Completed API Demo](https://peaceful-pika-08cbe4.netlify.app/.netlify/functions/server/recipes/)
 **([Source Code](https://github.com/tabrezakhtar/netlify-api-demo))**
 
 [Simple Front End Demo](https://resilient-daifuku-4beeb8.netlify.app/)
