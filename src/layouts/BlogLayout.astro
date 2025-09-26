@@ -118,7 +118,8 @@ const { pageTitle } = Astro.props;
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            project: projectName
+            project: projectName,
+            page: window.location.pathname,
           }),
           keepalive: true
         }).catch(function(error) {
