@@ -134,7 +134,7 @@ const { pageTitle } = Astro.props;
       }
       
       // Always use DOMContentLoaded to ensure single execution
-      document.addEventListener('DOMContentLoaded', sendHit);
+      document.addEventListener('load', sendHit);
     })('portfolio');
   </script>
 </body>
