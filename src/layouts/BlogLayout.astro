@@ -127,11 +127,8 @@ const { pageTitle } = Astro.props;
         });
       }
       
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', sendHit);
-      } else {
-        sendHit();
-      }
+      // Always use DOMContentLoaded to ensure single execution
+      document.addEventListener('DOMContentLoaded', sendHit);
     })('portfolio');
   </script>
 </body>
