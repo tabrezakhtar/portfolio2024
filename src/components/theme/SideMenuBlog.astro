@@ -15,5 +15,11 @@ const allPosts = await Astro.glob("../../pages/posts/*.md");
                 <BlogPost title={post.frontmatter.title} url={post.url} pubDate={post.frontmatter.pubDate}/>
             )
         }
+        
+        <li style="border-top: 1px solid #444; margin-top: 1rem; padding-top: 1rem;">
+            <a href="/privacy-policy" class="nav-link">
+                <i class="bx bx-shield"></i> <span>Privacy Policy</span>
+            </a>
+        </li>
     </ul>
 </nav>

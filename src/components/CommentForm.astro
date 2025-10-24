@@ -4,7 +4,7 @@ const { frontmatter } = Astro.props;
 <section id="comments">
   <h3>{frontmatter.title}</h3>
   <h2>Leave a Comment</h2>
-  <form name="comment" method="POST" data-netlify="true">
+  <form name="comment" method="POST">
     <input type="hidden" name="form-name" value="comment" />
     
     <p>
