@@ -1,24 +1,36 @@
 ---
+import { marked } from 'marked';
+
+// Configure marked for better list handling
+marked.setOptions({
+  gfm: true,
+  breaks: false
+});
+
 const projects = [
   {
-    title: "Guitar Explorer",
+    title: "rifftales",
     images: [
       "/assets/img/guitar-db.png",
       "/assets/img/guitar-db2.png"
     ],
-    site: "https://guitar-db-ui.netlify.app/",
-    source: "https://gitlab.com/tabrezakhtar/guitar-db",
-    description: [
-      "One of my hobbies is guitar playing, and I enjoy window shopping for my next guitar. This is my attempt at creating a site with an easy to use filter, that works fast and seamlessly. The main section of the page displays the guitars in a modal rather than opening up a new page. This makes the guitars easier to browse and maintains the current filter.",
-      "The API is built with Node/Express/Mongoose and MongoDB as the database. I found that building the filter was easier with MongoDB rather than a relational database because it accepts JSON to query the database. This made it trivial to build the query client-side and send it to the API.",
-      "The front-end is React/Redux and Sass. Usually I would reach for Bootstrap for this kind of project but I wanted to build the CSS from scratch and design my own responsive theme."
-    ],
+    site: "https://www.rifftales.net",
+    description: `One of my hobbies is guitar playing, and I enjoy window shopping for my next guitar. This **full-stack app** is my take on building a clean, fast, and enjoyable place for musicians to upload, browse, and show off their musical equipment.<br><br>
+
+The app has a **strong social layer**: users can like, comment, and discuss each other's gear, helping build a community of musicians and gear enthusiasts who love sharing their setups and getting inspiration from others.<br><br>
+
+**Technical details:**<br>
+
+• Backend: Node.js + Express with Mongoose and MongoDB<br>
+• Authentication: Custom passwordless login (magic links) for the smoothest possible user experience<br>
+• Frontend: React with Context API for global state management and Tailwind CSS for fast, responsive styling<br><br>
+It's a passion project that combines my love for guitars with full-stack development, focused on speed, usability, and bringing musicians together around the gear they love.`,
     tech: [
       { icon: "bx bxl-javascript", name: "JavaScript" },
       { icon: "bx bxl-nodejs", name: "NodeJS" },
       { icon: "bx bxl-mongodb", name: "MongoDB" },
       { icon: "bx bxl-react", name: "React" },
-      { icon: "bx bxl-sass", name: "Sass" },
+      { icon: "bx bxl-tailwind-css", name: "Tailwind CSS" },
       { icon: "bx bxl-html5", name: "HTML5" },
       { icon: "bx bxl-git", name: "Git" },
       { icon: "bx bxl-visual-studio", name: "VSCode" }
@@ -30,10 +42,10 @@ const projects = [
       "/assets/img/weightloss.png"
     ],
     site: "http://www.simpleweightlosstracker.co.uk",
-    description: [
-      "I'm currently on a weight loss journey so I wrote this to keep track of my progress.  There are plenty of weight loss trackers out there, but I wanted to build one that was private and ad free.",
-      "The app is built with plain JavaScript and Chart.js.  I chose to build inside Astro.js for convenience as it already has routing and markdown support built-in."
-    ],
+    description: `I'm currently on a **weight loss journey** so I wrote this to keep track of my progress.<br><br>
+    There are plenty of weight loss trackers out there, but I wanted to build one that was **private and ad free**.<br><br>
+
+The app is built with **plain JavaScript and Chart.js**. I chose to build inside Astro.js for convenience as it already has routing and markdown support built-in.`,
     tech: [
       { icon: "bx bxl-javascript", name: "JavaScript" },
       { icon: "bx bxl-html5", name: "HTML5" },
@@ -48,10 +60,10 @@ const projects = [
     ],
     site: "https://whatsthescore.netlify.app/",
     source: "https://github.com/tabrezakhtar/whatsthescore-web",
-    description: [
-      "I built this app as a way of keeping the score during a tennis match. Sometimes during a long match, its easy to forget! The UI is designed to be as simple as possible, with only 2 buttons to control the score.",
-      "To build this project, I used React with the Context API and styled it using BeerCSS for a Material theme. The module to model the tennis score is built with a Test-Driven approach using Jest, since tennis scoring has a lot of edge cases that can easily slip through without tests."
-    ],
+    description: `I built this app as a way of keeping the score during a **tennis match**. <br><br>
+    Sometimes during a long match, it's easy to forget! The UI is designed to be as **simple as possible**, with only 2 buttons to control the score.<br><br>
+To build this project, I used **React with the Context API** and styled it using BeerCSS for a Material theme. <br><br>
+The module to model the tennis score is built with a **Test-Driven approach using Jest**, since tennis scoring has a lot of edge cases that can easily slip through without tests.`,
     tech: [
       { icon: "bx bxl-javascript", name: "JavaScript" },
       { icon: "bx bxl-react", name: "React" },
@@ -88,9 +100,7 @@ const projects = [
             <span>
               <a class="link h4" href={project.site} target="_blank" rel="noopener noreferrer">{project.title}</a>
             </span>
-            {project.description.map(paragraph => (
-              <p>{paragraph}</p>
-            ))}
+            <div class="project-description" set:html={marked(project.description)} />
             <div class="tech__badges">
               {project.tech.map(t => (
                 <div data-aos="flip-left">
@@ -208,8 +218,30 @@ const projects = [
     padding-bottom: 1rem;
   }
 
+  .project-description p {
+    margin-bottom: 1rem;
+  }
+
+  .project-description ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    list-style-type: disc;
+  }
+
+  .project-description li {
+    margin-bottom: 0.5rem;
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: outside;
+  }
+
+  .project-description strong {
+    font-weight: bold;
+  }
+
   .project__container .rhs .tech__badges {
     justify-content: left;
+    padding-top: 1.5rem;
   }
 
   .project__container .rhs .tech__badges img {
@@ -219,6 +251,7 @@ const projects = [
   .link {
     font-weight: bold;
     color: #008080;
+    text-decoration: underline;
   }
 
   .modal-body img {
