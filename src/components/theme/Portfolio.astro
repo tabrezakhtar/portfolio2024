@@ -286,6 +286,12 @@ The module to model the tennis score is built with a **Test-Driven approach usin
   
   // Modal functions
   function openImageModal(modalId, imageSrc, index, images) {
+    // Hide mobile nav toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    if (mobileNavToggle) {
+      mobileNavToggle.style.display = 'none';
+    }
+    
     const modal = new bootstrap.Modal(document.getElementById(modalId));
     const modalImage = document.querySelector(`#${modalId} .modal-main-image`);
     
@@ -296,6 +302,14 @@ The module to model the tennis score is built with a **Test-Driven approach usin
     updateModalThumbnailStates(modalId, index);
     
     modal.show();
+    
+    // Add event listener to show mobile nav toggle when modal is hidden
+    const modalElement = document.getElementById(modalId);
+    modalElement.addEventListener('hidden.bs.modal', function() {
+      if (mobileNavToggle) {
+        mobileNavToggle.style.display = '';
+      }
+    }, { once: true });
   }
   
   function navigateModalImage(imageId, direction, images) {
