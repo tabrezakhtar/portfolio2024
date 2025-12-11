@@ -95,14 +95,54 @@ The module to model the tennis score is built with a **Test-Driven approach usin
       <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class="project__container">
           <div class="lhs">
-            {project.images.map((img, imgIndex) => (
-              <img 
-                src={img} 
-                alt={`Screenshot of ${project.title}`} 
-                data-bs-toggle="modal" 
-                data-bs-target={`#projectModal${projects.indexOf(project)}${imgIndex}`}
-              />
-            ))}
+            <div class="image-gallery">
+              {/* Main image display with navigation */}
+              <div class="main-image-container">
+                <img 
+                  id={`mainImage${projects.indexOf(project)}`}
+                  src={project.images[0]} 
+                  class="main-image" 
+                  alt={`Screenshot of ${project.title}`}
+                  data-current-index="0"
+                  data-total-images={project.images.length}
+                  onclick={`openImageModal('modal${projects.indexOf(project)}', '${project.images[0]}', 0, ${JSON.stringify(project.images)})`}
+                />
+                
+                {/* Navigation buttons */}
+                {project.images.length > 1 && (
+                  <>
+                    <button 
+                      class="nav-btn prev-btn"
+                      onclick={`navigateImage('mainImage${projects.indexOf(project)}', -1, ${JSON.stringify(project.images)})`}
+                      aria-label="Previous image"
+                    >
+                      <i class="bx bx-chevron-left"></i>
+                    </button>
+                    <button 
+                      class="nav-btn next-btn"
+                      onclick={`navigateImage('mainImage${projects.indexOf(project)}', 1, ${JSON.stringify(project.images)})`}
+                      aria-label="Next image"
+                    >
+                      <i class="bx bx-chevron-right"></i>
+                    </button>
+                  </>
+                )}
+              </div>
+              
+              {/* Thumbnail navigation */}
+              {project.images.length > 1 && (
+                <div class="thumbnails">
+                  {project.images.map((img, imgIndex) => (
+                    <img 
+                      src={img} 
+                      class="thumbnail" 
+                      alt={`Screenshot ${imgIndex + 1} of ${project.title}`}
+                      onclick={`selectImage('mainImage${projects.indexOf(project)}', '${img}', ${imgIndex})`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
           <div class="rhs">
             <span>
@@ -136,36 +176,175 @@ The module to model the tennis score is built with a **Test-Driven approach usin
   </div>
 </section>
 
-<!-- Bootstrap Modals for Lightbox -->
+<!-- Image Modals -->
 {projects.map((project, index) => (
-  project.images.map((img, imgIndex) => (
-    <div
-      class="modal fade"
-      id={`projectModal${index}${imgIndex}`}
-      tabindex="-1"
-      aria-labelledby={`projectModalLabel${index}${imgIndex}`}
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id={`projectModalLabel${index}${imgIndex}`}>{project.title}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center">
-            <img 
-              src={img} 
-              alt={`Screenshot of ${project.title}`} 
-              class="img-fluid" 
-              data-bs-dismiss="modal"
-              style="cursor: pointer;"
-            />
+  <div class="modal fade" id={`modal${index}`} tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{project.title} - Gallery</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="modal-image-gallery">
+            <!-- Main image in modal -->
+            <div class="modal-main-image-container">
+              <img 
+                id={`modalImage${index}`}
+                src={project.images[0]} 
+                class="modal-main-image" 
+                alt={`Screenshot of ${project.title}`}
+                data-current-index="0"
+              />
+              
+              <!-- Modal navigation buttons -->
+              {project.images.length > 1 && (
+                <>
+                  <button 
+                    class="modal-nav-btn modal-prev-btn"
+                    onclick={`navigateModalImage('modalImage${index}', -1, ${JSON.stringify(project.images)})`}
+                    aria-label="Previous image"
+                  >
+                    <i class="bx bx-chevron-left"></i>
+                  </button>
+                  <button 
+                    class="modal-nav-btn modal-next-btn"
+                    onclick={`navigateModalImage('modalImage${index}', 1, ${JSON.stringify(project.images)})`}
+                    aria-label="Next image"
+                  >
+                    <i class="bx bx-chevron-right"></i>
+                  </button>
+                </>
+              )}
+            </div>
+            
+            <!-- Modal thumbnails -->
+            {project.images.length > 1 && (
+              <div class="modal-thumbnails">
+                {project.images.map((img, imgIndex) => (
+                  <img 
+                    src={img} 
+                    class={`modal-thumbnail ${imgIndex === 0 ? 'active' : ''}`}
+                    alt={`Screenshot ${imgIndex + 1} of ${project.title}`}
+                    onclick={`selectModalImage('modalImage${index}', '${img}', ${imgIndex})`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
     </div>
-  ))
+  </div>
 ))}
+
+<script is:inline>
+  function navigateImage(imageId, direction, images) {
+    const img = document.getElementById(imageId);
+    const currentIndex = parseInt(img.getAttribute('data-current-index'));
+    const totalImages = images.length;
+    
+    let newIndex = currentIndex + direction;
+    
+    // Handle wrapping
+    if (newIndex >= totalImages) {
+      newIndex = 0;
+    } else if (newIndex < 0) {
+      newIndex = totalImages - 1;
+    }
+    
+    // Update image
+    img.src = images[newIndex];
+    img.setAttribute('data-current-index', newIndex);
+    
+    // Update thumbnail active states
+    updateThumbnailStates(imageId, newIndex);
+  }
+  
+  function selectImage(imageId, imageSrc, index) {
+    const img = document.getElementById(imageId);
+    img.src = imageSrc;
+    img.setAttribute('data-current-index', index);
+    
+    // Update thumbnail active states
+    updateThumbnailStates(imageId, index);
+  }
+  
+  function updateThumbnailStates(imageId, activeIndex) {
+    // Find the container and update thumbnail states
+    const container = document.getElementById(imageId).closest('.image-gallery');
+    const thumbnails = container.querySelectorAll('.thumbnail');
+    
+    thumbnails.forEach((thumbnail, index) => {
+      if (index === activeIndex) {
+        thumbnail.classList.add('active');
+      } else {
+        thumbnail.classList.remove('active');
+      }
+    });
+  }
+  
+  // Modal functions
+  function openImageModal(modalId, imageSrc, index, images) {
+    const modal = new bootstrap.Modal(document.getElementById(modalId));
+    const modalImage = document.querySelector(`#${modalId} .modal-main-image`);
+    
+    modalImage.src = imageSrc;
+    modalImage.setAttribute('data-current-index', index);
+    
+    // Update modal thumbnail states
+    updateModalThumbnailStates(modalId, index);
+    
+    modal.show();
+  }
+  
+  function navigateModalImage(imageId, direction, images) {
+    const img = document.getElementById(imageId);
+    const currentIndex = parseInt(img.getAttribute('data-current-index'));
+    const totalImages = images.length;
+    
+    let newIndex = currentIndex + direction;
+    
+    // Handle wrapping
+    if (newIndex >= totalImages) {
+      newIndex = 0;
+    } else if (newIndex < 0) {
+      newIndex = totalImages - 1;
+    }
+    
+    // Update image
+    img.src = images[newIndex];
+    img.setAttribute('data-current-index', newIndex);
+    
+    // Update modal thumbnail states
+    const modalId = img.closest('.modal').id;
+    updateModalThumbnailStates(modalId, newIndex);
+  }
+  
+  function selectModalImage(imageId, imageSrc, index) {
+    const img = document.getElementById(imageId);
+    img.src = imageSrc;
+    img.setAttribute('data-current-index', index);
+    
+    // Update modal thumbnail states
+    const modalId = img.closest('.modal').id;
+    updateModalThumbnailStates(modalId, index);
+  }
+  
+  function updateModalThumbnailStates(modalId, activeIndex) {
+    const modal = document.getElementById(modalId);
+    const thumbnails = modal.querySelectorAll('.modal-thumbnail');
+    
+    thumbnails.forEach((thumbnail, index) => {
+      if (index === activeIndex) {
+        thumbnail.classList.add('active');
+      } else {
+        thumbnail.classList.remove('active');
+      }
+    });
+  }
+</script>
+
 
 <style>
   .project__container {
@@ -183,8 +362,8 @@ The module to model the tennis score is built with a **Test-Driven approach usin
   .project__container .lhs {
     flex: 0 1 calc(30%);
     display: flex;
-    justify-content: center;
-    align-items: top;
+    justify-content: start;
+    align-items: flex-start;
     flex-direction: column;
   }
 
@@ -194,21 +373,108 @@ The module to model the tennis score is built with a **Test-Driven approach usin
     }
   }
 
-  .project__container .lhs img {
-    transition: all .2s ease-in-out;
+  .image-gallery {
     width: 24rem;
-    padding-top: 2rem;
+    margin-top: 2rem;
+    max-width: 100%;
+  }
+
+  .main-image-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .main-image {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .main-image:hover {
+    transform: scale(1.02);
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 128, 128, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .main-image-container:hover .nav-btn {
+    opacity: 1;
+  }
+
+  .nav-btn:hover {
+    background: rgba(0, 128, 128, 1);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .prev-btn {
+    left: 15px;
+  }
+
+  .next-btn {
+    right: 15px;
+  }
+
+  .thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .thumbnail:hover {
+    border-color: #008080;
+    transform: scale(1.05);
+  }
+
+  .thumbnail.active {
+    border-color: #008080;
+    border-width: 3px;
   }
 
   @media (max-width: 720px) {
-    .project__container .lhs img {
+    .image-gallery {
       width: 35rem;
-    }  
-  }
-
-  .project__container .lhs img:hover {
-    transform: scale(1.1);
-    cursor: pointer;
+    }
+    
+    .thumbnail {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   .project__container .rhs {
@@ -262,12 +528,121 @@ The module to model the tennis score is built with a **Test-Driven approach usin
     text-decoration: underline;
   }
 
-  .modal-body img {
-    max-height: 70vh;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
+  /* Modal Styles */
+  .modal-xl {
+    max-width: 1200px;
   }
+
+  @media (max-width: 1400px) {
+    .modal-xl {
+      max-width: 90vw;
+    }
+  }
+
+  .modal-image-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .modal-main-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 1rem;
+  }
+
+  .modal-main-image {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .modal-nav-btn:hover {
+    background: rgba(0, 128, 128, 0.9);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .modal-prev-btn {
+    left: 20px;
+  }
+
+  .modal-next-btn {
+    right: 20px;
+  }
+
+  .modal-thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    max-width: 800px;
+    overflow-x: auto;
+    padding: 0.5rem;
+  }
+
+  .modal-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .modal-thumbnail:hover {
+    border-color: #008080;
+    transform: scale(1.05);
+  }
+
+  .modal-thumbnail.active {
+    border-color: #008080;
+    border-width: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .modal-xl {
+      max-width: 95vw;
+    }
+    
+    .modal-main-image {
+      max-height: 60vh;
+    }
+    
+    .modal-thumbnail {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .modal-nav-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+
+
 </style>
