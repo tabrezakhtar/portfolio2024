@@ -105,7 +105,7 @@ The module to model the tennis score is built with a **Test-Driven approach usin
                   alt={`Screenshot of ${project.title}`}
                   data-current-index="0"
                   data-total-images={project.images.length}
-                  onclick={`openImageModal('modal${projects.indexOf(project)}', '${project.images[0]}', 0, ${JSON.stringify(project.images)})`}
+                  onclick={`openCurrentImageModal('modal${projects.indexOf(project)}', 'mainImage${projects.indexOf(project)}', ${JSON.stringify(project.images)})`}
                 />
                 
                 {/* Navigation buttons */}
@@ -282,6 +282,15 @@ The module to model the tennis score is built with a **Test-Driven approach usin
         thumbnail.classList.remove('active');
       }
     });
+  }
+  
+  // Function to open modal with current image state
+  function openCurrentImageModal(modalId, mainImageId, images) {
+    const mainImage = document.getElementById(mainImageId);
+    const currentIndex = parseInt(mainImage.getAttribute('data-current-index'));
+    const currentSrc = mainImage.src;
+    
+    openImageModal(modalId, currentSrc, currentIndex, images);
   }
   
   // Modal functions
