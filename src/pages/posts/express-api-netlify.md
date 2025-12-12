@@ -40,50 +40,58 @@ This is what the structure of my Express app looks like:
 The data is stored in a JSON file.  The recipes route loads and filters by ingredients:
 
 `(recipes.js)`
-<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> recipes = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"../data/recipes.json"</span>);
-<span style="color: rgb(255, 123, 114); font-weight: 400;">async</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">function</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">getAll</span>(<span style="color: rgb(201, 209, 217); font-weight: 400;">req, res</span>) {
-  res.<span style="color: rgb(210, 168, 255); font-weight: 400;">json</span>(recipes);
+```javascript
+const recipes = require("../data/recipes.json");
+async function getAll(req, res) {
+  res.json(recipes);
 }
-<span style="color: rgb(255, 123, 114); font-weight: 400;">async</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">function</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">getByIngredient</span>(<span style="color: rgb(201, 209, 217); font-weight: 400;">req, res</span>) {
-  <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> { ingredient } = req.<span style="color: rgb(201, 209, 217); font-weight: 400;">query</span>;
-  <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> filteredRecipes = recipes.<span style="color: rgb(210, 168, 255); font-weight: 400;">filter</span>(<span style="color: rgb(201, 209, 217); font-weight: 400;">(<span style="color: rgb(201, 209, 217); font-weight: 400;">recipe</span>) =&gt;</span> {
-    <span style="color: rgb(255, 123, 114); font-weight: 400;">return</span> recipe.<span style="color: rgb(201, 209, 217); font-weight: 400;">ingredients</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">includes</span>(ingredient);
+async function getByIngredient(req, res) {
+  const { ingredient } = req.query;
+  const filteredRecipes = recipes.filter((recipe) => {
+    return recipe.ingredients.includes(ingredient);
   });
-  res.<span style="color: rgb(210, 168, 255); font-weight: 400;">json</span>(filteredRecipes);
+  res.json(filteredRecipes);
 }
-<span style="color: rgb(255, 123, 114); font-weight: 400;">module</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">exports</span> = { getAll, getByIngredient };</pre>
+module.exports = { getAll, getByIngredient };
+```
 
 
 `server.js` then loads the routes and starts the server:
 
 `(server.js)`
 
-<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> express = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"express"</span>);
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> app = <span style="color: rgb(210, 168, 255); font-weight: 400;">express</span>();
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> port = <span style="color: rgb(121, 192, 255); font-weight: 400;">3000</span>;
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> apiRoutes = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"./routes"</span>);
-app.<span style="color: rgb(210, 168, 255); font-weight: 400;">use</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"/recipes/"</span>, apiRoutes);
-<span style="color: rgb(139, 148, 158); font-weight: 400;">// Start the server</span>
-app.<span style="color: rgb(210, 168, 255); font-weight: 400;">listen</span>(port, <span style="color: rgb(201, 209, 217); font-weight: 400;">() =&gt;</span> {
-    <span style="color: rgb(255, 123, 114); font-weight: 400;">console</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">log</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">`Server running at http://localhost:<span style="color: rgb(201, 209, 217); font-weight: 400;">${port}</span>`</span>);
-});</pre>
+```javascript
+const express = require("express");
+const app = express();
+const port = 3000;
+const apiRoutes = require("./routes");
+app.use("/recipes/", apiRoutes);
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
+```
 
 
 Since I need to run the app locally and as serverless functions, the starting of the server needs to be split from creating the server.  I moved the creating server code to a folder called `express`
 
 `express/server.js`
 
-<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> express = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"express"</span>);
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> app = <span style="color: rgb(210, 168, 255); font-weight: 400;">express</span>();
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> apiRoutes = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"../routes"</span>);
-app.<span style="color: rgb(210, 168, 255); font-weight: 400;">use</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"/recipes/"</span>, apiRoutes);
-<span style="color: rgb(255, 123, 114); font-weight: 400;">module</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">exports</span> = app;</pre>
+```javascript
+const express = require("express");
+const app = express();
+const apiRoutes = require("../routes");
+app.use("/recipes/", apiRoutes);
+module.exports = app;
+```
 
 
 Then in the main file, `index.js` is imported and the server is created:
-<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> app = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"./express/server"</span>);
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> port = <span style="color: rgb(121, 192, 255); font-weight: 400;">3000</span>;
-app.<span style="color: rgb(210, 168, 255); font-weight: 400;">listen</span>(port, <span style="color: rgb(201, 209, 217); font-weight: 400;">() =&gt;</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">console</span>.<span style="color: rgb(210, 168, 255); font-weight: 400;">log</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">`Running server on port <span style="color: rgb(201, 209, 217); font-weight: 400;">${port}</span>`</span>));</pre>
+```javascript
+const app = require("./express/server");
+const port = 3000;
+app.listen(port, () => console.log(`Running server on port ${port}`));
+```
 
 
 Now running `node index.js` will start the server as usual for local development.
@@ -91,14 +99,16 @@ Now running `node index.js` will start the server as usual for local development
 The server that sets up the routes needs to export the express app as a server function.  This is easy to do with the [serverless-http](https://www.npmjs.com/package/serverless-http) package.
 
 `(express/server.js)`
-<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> express = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"express"</span>);
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> serverless = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"serverless-http"</span>);
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> app = <span style="color: rgb(210, 168, 255); font-weight: 400;">express</span>();
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> apiRoutes = <span style="color: rgb(255, 166, 87); font-weight: 400;">require</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"../routes"</span>);
-app.<span style="color: rgb(210, 168, 255); font-weight: 400;">use</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"/recipes/"</span>, apiRoutes);
-app.<span style="color: rgb(210, 168, 255); font-weight: 400;">use</span>(<span style="color: rgb(165, 214, 255); font-weight: 400;">"/.netlify/functions/server/recipes"</span>, apiRoutes);
-<span style="color: rgb(255, 123, 114); font-weight: 400;">module</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">exports</span> = app;
-<span style="color: rgb(255, 123, 114); font-weight: 400;">module</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">exports</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">handler</span> = <span style="color: rgb(210, 168, 255); font-weight: 400;">serverless</span>(app);</pre>
+```javascript
+const express = require("express");
+const serverless = require("serverless-http");
+const app = express();
+const apiRoutes = require("../routes");
+app.use("/recipes/", apiRoutes);
+app.use("/.netlify/functions/server/recipes", apiRoutes);
+module.exports = app;
+module.exports.handler = serverless(app);
+```
 
 
 The routes are then redirected to `.netlify/functions` which is an endpoint where serverless functions can be accessed.

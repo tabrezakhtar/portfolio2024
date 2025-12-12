@@ -32,51 +32,54 @@ Instead of Redux, I wanted to just use the Context API which is built into React
 I converted `MenuReducer` first as its the smallest reducer.
 
 *This is what looked like before with Redux:*
-<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;font-size:medium;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(139, 148, 158); font-weight: 400;">// menuReducer.js</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">export</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> initialState = {
-  <span style="color: rgb(121, 192, 255); font-weight: 400;">selected</span>: <span style="color: rgb(121, 192, 255); font-weight: 400;">false</span>
+```javascript
+// menuReducer.js
+export const initialState = {
+  selected: false
 }
 
-<span style="color: rgb(255, 123, 114); font-weight: 400;">export</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">default</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">function</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">menuReducer</span>(<span style="color: rgb(201, 209, 217); font-weight: 400;">state = initialState, action</span>) {
-  <span style="color: rgb(255, 123, 114); font-weight: 400;">switch</span> (action.<span style="color: rgb(201, 209, 217); font-weight: 400;">type</span>) {
-    <span style="color: rgb(255, 123, 114); font-weight: 400;">case</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">'TOGGLE_MENU'</span>:
-      <span style="color: rgb(255, 123, 114); font-weight: 400;">return</span> { 
+export default function menuReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'TOGGLE_MENU':
+      return { 
         ...state,
-        <span style="color: rgb(121, 192, 255); font-weight: 400;">selected</span>: action.<span style="color: rgb(201, 209, 217); font-weight: 400;">payload</span>
+        selected: action.payload
       }
-    <span style="color: rgb(121, 192, 255); font-weight: 400;">default</span>:
-      <span style="color: rgb(255, 123, 114); font-weight: 400;">return</span> state
+    default:
+      return state
   }
 }
-</pre>
+```
 *This is afterwards with the Context API:*
-<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;font-size:medium;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; ">//menuContext.js</span>
-<span style="color: rgb(255, 123, 114); font-weight: 400;">import</span> { createContext, useContext, useState } <span style="color: rgb(255, 123, 114); font-weight: 400;">from</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"react"</span>;
-<span style="color: rgb(255, 123, 114); font-weight: 400;">import</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">PropTypes</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">from</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"prop-types"</span>;
+```javascript
+//menuContext.js
+import { createContext, useContext, useState } from "react";
+import PropTypes from "prop-types";
 
-<span style="color: rgb(255, 123, 114); font-weight: 400;">export</span> <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> initialState = {
-  <span style="color: rgb(121, 192, 255); font-weight: 400;">selected</span>: <span style="color: rgb(121, 192, 255); font-weight: 400;">false</span>
+export const initialState = {
+  selected: false
 }
 
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">MenuContext</span> = <span style="color: rgb(210, 168, 255); font-weight: 400;">createContext</span>(<span style="color: rgb(121, 192, 255); font-weight: 400;">null</span>);
+const MenuContext = createContext(null);
 
-<span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">MenuProvider</span> = (<span style="color: rgb(201, 209, 217); font-weight: 400;">{ children }</span>) =&gt; {
-  <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> [menu, setMenu] = <span style="color: rgb(210, 168, 255); font-weight: 400;">useState</span>(initialState);
+const MenuProvider = ({ children }) => {
+  const [menu, setMenu] = useState(initialState);
 
-  <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> <span style="color: rgb(210, 168, 255); font-weight: 400;">toggleMenu</span> = (<span style="color: rgb(201, 209, 217); font-weight: 400;"></span>) =&gt; {
-    <span style="color: rgb(210, 168, 255); font-weight: 400;">setMenu</span>(<span style="color: rgb(201, 209, 217); font-weight: 400;">(<span style="color: rgb(201, 209, 217); font-weight: 400;">menu</span>) =&gt;</span> ({ ...menu, <span style="color: rgb(121, 192, 255); font-weight: 400;">selected</span>: !menu.<span style="color: rgb(201, 209, 217); font-weight: 400;">selected</span> }));
+  const toggleMenu = () => {
+    setMenu((menu) => ({ ...menu, selected: !menu.selected }));
   };
 
-  <span style="color: rgb(255, 123, 114); font-weight: 400;">const</span> value = { menu, toggleMenu };
+  const value = { menu, toggleMenu };
 
-  <span style="color: rgb(255, 123, 114); font-weight: 400;">return</span> <span style="color: rgb(201, 209, 217); font-weight: 400;"><span style="color: rgb(201, 209, 217); font-weight: 400;">&lt;<span style="color: rgb(126, 231, 135); font-weight: 400;">MenuContext.Provider</span> <span style="color: rgb(121, 192, 255); font-weight: 400;">value</span>=<span style="color: rgb(165, 214, 255); font-weight: 400;">{value}</span>&gt;</span>{children}<span style="color: rgb(201, 209, 217); font-weight: 400;">&lt;/<span style="color: rgb(126, 231, 135); font-weight: 400;">MenuContext.Provider</span>&gt;</span></span>;
+  return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };
 
-<span style="color: rgb(210, 168, 255); font-weight: 400;">MenuProvider</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">propTypes</span> = {
-  <span style="color: rgb(121, 192, 255); font-weight: 400;">children</span>: <span style="color: rgb(210, 168, 255); font-weight: 400;">PropTypes</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">node</span>.<span style="color: rgb(201, 209, 217); font-weight: 400;">isRequired</span>,
+MenuProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-<span style="color: rgb(255, 123, 114); font-weight: 400;">export</span> { <span style="color: rgb(210, 168, 255); font-weight: 400;">MenuProvider</span>, <span style="color: rgb(210, 168, 255); font-weight: 400;">MenuContext</span> };</pre>
+export { MenuProvider, MenuContext };
+```
 
 The state is saved in the Provider, then the individual functions that handle the state are exported.  This maintains the same pattern as before, except instead of dispatching actions, the exported function can be invoked from any component that utilizes the context.
 
@@ -91,8 +94,10 @@ After the app was working again, I thought about what to do about the UI.  I kne
 
 I found [BeerCSS](https://www.beercss.com/) which is a tiny library for styling apps.  It can even be installed simply by using a CDN:
 
-<pre style="border: 2px solid rgb(39 128 129); padding: 10px; font-family:monospace;color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-weight: 400; "><span style="color: rgb(201, 209, 217); font-weight: 400;">&lt;<span style="color: rgb(126, 231, 135); font-weight: 400;">link</span> <span style="color: rgb(121, 192, 255); font-weight: 400;">href</span>=<span style="color: rgb(165, 214, 255); font-weight: 400;">"https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.css"</span> <span style="color: rgb(121, 192, 255); font-weight: 400;">rel</span>=<span style="color: rgb(165, 214, 255); font-weight: 400;">"stylesheet"</span>&gt;</span>
-<span style="color: rgb(201, 209, 217); font-weight: 400;">&lt;<span style="color: rgb(126, 231, 135); font-weight: 400;">script</span> <span style="color: rgb(121, 192, 255); font-weight: 400;">type</span>=<span style="color: rgb(165, 214, 255); font-weight: 400;">"module"</span> <span style="color: rgb(121, 192, 255); font-weight: 400;">src</span>=<span style="color: rgb(165, 214, 255); font-weight: 400;">"https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.js"</span>&gt;</span><span style="color: rgb(201, 209, 217); font-weight: 400;">&lt;/<span style="color: rgb(126, 231, 135); font-weight: 400;">script</span>&gt;</span></pre>
+```html
+<link href="https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.css" rel="stylesheet">
+<script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.js"></script>
+```
 
 <img src="/assets/img/blog/beercsskb.png" alt="Screenshot of beer css size" width="700">
 The library is only 18.8kb!
