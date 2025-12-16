@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Can I survive with 8GB RAM?'
+title: 'Surviving with 8GB RAM'
 pubDate: 2025-12-12
 description: 'Building modern web apps with Node.js, MongoDB, and React while keeping memory usage under control.'
 author: 'Tabrez Akhtar'
