@@ -15,7 +15,7 @@ The specs are very decent for not much money (6 cores/12 Threads), and it even h
 <a href="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857039/speccy_sskhc2.png" target="_blank"><img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857039/speccy_sskhc2.png" alt="PC specifications" width="300"></a>
 
 The only downside is the 8GB of RAM.
-I had a quick check of the motherboard and saw that it supports up to 32GB.
+I had a quick check on the motherboard and saw that it supports up to 32GB.
 I bought it fully expecting to max out the RAM.  I didn't realise that RAM prices are through the roof right now with little availability.
 
 Looks like I won't be upgrading any time soon😒
