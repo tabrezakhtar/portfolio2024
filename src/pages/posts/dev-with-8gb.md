@@ -18,8 +18,6 @@ The only downside is the 8GB of RAM.
 I had a quick check on the motherboard and saw that it supports up to 32GB.
 I bought it fully expecting to max out the RAM.  Unfortunately I didn't know that RAM prices are through the roof right now with little availability.
 
-Looks like I won't be upgrading any time soon😒
-
 I decided to just carry on with installing all my dev tools and see if it's usable.
 
 
