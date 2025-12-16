@@ -91,7 +91,7 @@ volumes:
   ...
 ```
 
-In my case, I already have a MongoDB Cloud (Atlas) account.  I decided instead to create a dev MongoDB there instead.  My API now connects directly to the dev DB from localhost.
+In my case, I already have a MongoDB Cloud (Atlas) account.  I decided instead to create a dev MongoDB there instead.  My API now connects directly to the dev DB from localhost.  For me, this is a better solution than running the database locally, and it's one less thing to spin up when I start my local dev servers.
 
 ### WSL2
 I decided to remove WSL2. On 8GB, it feels slow to use, and I'm not in need of a full Linux environment anymore. I am using [Git Bash](https://gitforwindows.org/) on Windows, and it works fine.
