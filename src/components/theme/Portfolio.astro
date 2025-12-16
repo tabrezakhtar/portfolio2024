@@ -145,7 +145,7 @@ The module to model the tennis score is built with a **Test-Driven approach usin
           </div>
           <div class="rhs">
             <span>
-              <a class="link h4" href={project.site} target="_blank" rel="noopener noreferrer">{project.title}</a>
+              <a class="link h4" href={project.site} target="_blank" rel="opener" referrerpolicy="origin">{project.title}</a>
             </span>
             <div class="project-description" set:html={marked(project.description)} />
             <div class="tech__badges">
@@ -159,12 +159,12 @@ The module to model the tennis score is built with a **Test-Driven approach usin
             <p>
               {project.source && (
                 <span>
-                  source: <a class="link" href={project.source} target="_blank" rel="noopener noreferrer">{project.source}</a>
+                  source: <a class="link" href={project.source} target="_blank" rel="opener" referrerpolicy="origin">{project.source}</a>
                 </span>
               )}
               {project.site && (
                 <span>
-                  site: <a class="link" href={project.site} target="_blank" rel="noopener noreferrer">{project.site}</a>
+                  site: <a class="link" href={project.site} target="_blank" rel="opener" referrerpolicy="origin">{project.site}</a>
                 </span>
               )}
             </p>
