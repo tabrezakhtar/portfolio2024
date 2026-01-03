@@ -8,11 +8,11 @@ tags: ["Node", "MongoDB", "React", "Performance", "Development Setup"]
 ---
 
 I was hunting for an eBay bargain and I found this nice little PC:
-[![HP PC](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857046/hp_ypgwmg.jpg)](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857046/hp_ypgwmg.jpg)
+<a href="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857046/hp_ypgwmg.jpg" target="_blank"><img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857046/hp_ypgwmg.jpg" alt="HP PC" width="300"></a>
 
 The specs are very decent for not much money (6 cores/12 Threads), and it even has a 1660 Super.
 
-[![PC specifications](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857039/speccy_sskhc2.png)](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857039/speccy_sskhc2.png)
+<a href="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857039/speccy_sskhc2.png" target="_blank"><img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765857039/speccy_sskhc2.png" alt="PC specifications" width="300"></a>
 
 The only downside is the 8GB of RAM.
 I had a quick check on the motherboard and saw that it supports up to 32GB.
@@ -34,7 +34,7 @@ It doesn't seem like much, but RAM usage can quickly balloon, especially with 2 
 
 This is the RAM situation after running a decent sized full stack project:
 
-[![RAM usage screenshot](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765765528/Screenshot_2025-12-15_022419_fsercz.png)](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765765528/Screenshot_2025-12-15_022419_fsercz.png)
+<a href="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765765528/Screenshot_2025-12-15_022419_fsercz.png" target="_blank"><img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765765528/Screenshot_2025-12-15_022419_fsercz.png" alt="RAM usage screenshot" width="600"></a>
 
 Hmm😕  I know that Windows caches aggressively so a full graph like this isn't necessarily a bad thing.  However, in this case my machine definitely feels slow.  I can tell there's a lot of page file activity going on.
 
@@ -123,10 +123,10 @@ Instead of having the Slack app open all the time, I have it installed on my pho
 
 | Before | After |
 |--------|-------|
-| [![Final RAM usage before optimizations](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765765528/Screenshot_2025-12-15_022419_fsercz.png)](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765765528/Screenshot_2025-12-15_022419_fsercz.png) | [![Final RAM usage after optimizations](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765766493/Screenshot_2025-12-15_024054_m6nqo5.png)](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765766493/Screenshot_2025-12-15_024054_m6nqo5.png) |
+| <a href="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765765528/Screenshot_2025-12-15_022419_fsercz.png" target="_blank"><img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765765528/Screenshot_2025-12-15_022419_fsercz.png" alt="Final RAM usage before optimizations" width="600"></a> | <a href="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765766493/Screenshot_2025-12-15_024054_m6nqo5.png" target="_blank"><img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765766493/Screenshot_2025-12-15_024054_m6nqo5.png" alt="Final RAM usage after optimizations" width="600"></a> |
 
 Yes, it's possible to do modern development with 8GB, but it's not ideal.  I had to compromise as there is very little headroom.  Personally, I don't like to worry about RAM when I'm developing and I prefer to use the right tool for the job.  I can manage on 8GB for now though.
 
 Hopefully RAM stock and prices will recover in 2026!
 
-![Nope reaction image](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765764417/nope_z3dzs4.webp)
+<img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765764417/nope_z3dzs4.webp" alt="Nope reaction image" width="400">
