@@ -99,6 +99,14 @@ Most of the popular open source projects support Windows nowadays anyway🤷‍�
 
 ### Microsoft Edge
 I turned on the sleeping tabs feature in Edge.  This saves a ton of memory because I usually have around 10-20 tabs open.
+I also turned on the Resource Controls, and set the max memory usage to 1.5GB.
+
+The downside of turning on these performance options is that the tab will refresh when it is clicked on later on.
+This isn't an issue generally, but it's annoying when watching a YouTube video.  Pausing the video, and revisiting that tab later causes the page to refresh and lose the playback location.
+
+I found this plugin called [Easy Resume](https://chromewebstore.google.com/detail/easy-resume-video-manager/jnnbaimhjkojbpaeaejjdecpljheogcn) that saves the playback position. It works really well and solves this issue.
+
+Also, Chrome extensions work in Edge! There's no reason why they wouldn't as they both use WebKit, but I was surprised that Microsoft allows this.
 
 ### Slack
 The Slack desktop app has become much more efficient, but it still uses a lot of RAM. Its minimum usage is around 500MB!
