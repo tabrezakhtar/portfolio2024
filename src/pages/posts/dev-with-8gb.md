@@ -46,24 +46,24 @@ The tools I use are all based on Electron and are notorious memory hogs. VS Code
 
 ### Code Editor
 
-When I was considering lightweight code editors, I immediately thought of [Sublime Text](https://www.sublimetext.com/). I haven't used it in 10 years, but I have fond memories of it. I wasn't looking forward to configuring it though. I wanted something pre-configured like VS Code.
+When I was considering lightweight code editors, I immediately thought of <a href="https://www.sublimetext.com/" target="_blank" rel="noreferrer">Sublime Text</a>. I haven't used it in 10 years, but I have fond memories of it. I wasn't looking forward to configuring it though. I wanted something pre-configured like VS Code.
 
-Then I discovered [Zed](https://zed.dev/), a native code editor built with Rust. Unlike VS Code, Zed typically uses 50-100MB of RAM and is incredibly responsive.
+Then I discovered <a href="https://zed.dev/" target="_blank" rel="noreferrer">Zed</a>, a native code editor built with Rust. Unlike VS Code, Zed typically uses 50-100MB of RAM and is incredibly responsive.
 
 I found it instantly familiar as an editor.  Even the shortcuts are the same, and Copilot works perfectly.
 
 
 
-The only thing it's missing is comprehensive Git tooling. VS Code has lots of Git extensions such as [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens), [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph) and [Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory). There's nothing like this for Zed, except for a basic but usable source control sidebar.
+The only thing it's missing is comprehensive Git tooling. VS Code has lots of Git extensions such as <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens" target="_blank" rel="noreferrer">GitLens</a>, <a href="https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph" target="_blank" rel="noreferrer">Git Graph</a> and <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory" target="_blank" rel="noreferrer">Git History</a>. There's nothing like this for Zed, except for a basic but usable source control sidebar.
 
 
-It's not a huge deal for me. I'm happy using the Git terminal. If I wanted to use a GUI, I would probably use [SourceTree](https://www.sourcetreeapp.com/), which is written natively in C#.
+It's not a huge deal for me. I'm happy using the Git terminal. If I wanted to use a GUI, I would probably use <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noreferrer">SourceTree</a>, which is written natively in C#.
 
 ### Database Management: MongoDB Compass and Robo 3T
 
-I've been using [MongoDB Compass](https://www.mongodb.com/products/compass) for years and it's a really nice tool. I like the direct inline editing of documents and it's surprisingly snappy for an Electron app.
+I've been using <a href="https://www.mongodb.com/products/compass" target="_blank" rel="noreferrer">MongoDB Compass</a> for years and it's a really nice tool. I like the direct inline editing of documents and it's surprisingly snappy for an Electron app.
 
-The other option is [Robo 3T](https://robomongo.org/) which is a very lightweight editor, and uses a tiny amount of RAM.
+The other option is <a href="https://robomongo.org/" target="_blank" rel="noreferrer">Robo 3T</a> which is a very lightweight editor, and uses a tiny amount of RAM.
 
 
 I decided to carry on using Compass.  I don't have it open all the time, and I typically only use it for querying and basic data updates.  If I need to do anything more (e.g. a report), I usually write a Node script to do it.
@@ -99,7 +99,7 @@ volumes:
 In my case, I already have a MongoDB Cloud (Atlas) account.  I decided instead to create a dev MongoDB there instead.  My API now connects directly to the dev DB from localhost.  For me, this is a better solution than running the database locally, and it's one less thing to spin up when I start my local dev servers.
 
 ### WSL2
-I decided to remove WSL2. On 8GB, it feels slow to use, and I'm not in need of a full Linux environment anymore. I am using [Git Bash](https://gitforwindows.org/) on Windows, and it works fine.
+I decided to remove WSL2. On 8GB, it feels slow to use, and I'm not in need of a full Linux environment anymore. I am using <a href="https://gitforwindows.org/" target="_blank" rel="noreferrer">Git Bash</a> on Windows, and it works fine.
 Most of the popular open source projects support Windows nowadays anyway🤷‍♂️
 
 ### Microsoft Edge
@@ -110,7 +110,7 @@ The downside of turning on these performance options is that the tab will refres
 This isn't an issue generally, but it's annoying when watching a YouTube video.  Pausing the video, and revisiting that tab later causes the page to refresh and lose the playback location.
 
 
-I found this plugin called [Easy Resume](https://chromewebstore.google.com/detail/easy-resume-video-manager/jnnbaimhjkojbpaeaejjdecpljheogcn) that saves the playback position. It works really well and solves this issue.
+I found this plugin called <a href="https://chromewebstore.google.com/detail/easy-resume-video-manager/jnnbaimhjkojbpaeaejjdecpljheogcn" target="_blank" rel="noreferrer">Easy Resume</a> that saves the playback position. It works really well and solves this issue.
 
 Also, Chrome extensions work in Edge! There's no reason why they wouldn't as they both use WebKit, but I was surprised that Microsoft allows this.
 

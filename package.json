@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/rss": "^4.0.7",
-    "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.11.3",
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.16.6",
     "highlight.js": "^11.11.1",
     "marked": "^17.0.1",
     "preact": "^10.22.1",
