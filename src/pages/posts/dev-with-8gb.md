@@ -42,7 +42,7 @@ Hmm😕  I know that Windows caches aggressively so a full graph like this isn't
 <img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1765764518/J47crA9L0GpTBsLMVK_bxo9he.webp" alt="Hard drive activity indicator blinking rapidly" width="200"> -->
 
 ### Electron apps
-The tools I use are all based on Electron and are notorious memory hogs. VS Code can easily consume 1GB+ with extensions. MongoDB Compass, Slack, and other Electron-based apps each claim their own hefty chunks of RAM.  I don't have a problem with Electron personally, but I need to swap out some of these memory-hungry apps.
+The tools I use are all based on Electron and are notorious memory hogs. VS Code can easily consume 1GB+ with extensions. MongoDB Compass, Slack, and other Electron-based apps each claim their own hefty chunks of RAM.  I like Electron, but I need to swap out some of these memory-hungry apps.
 
 ### Code Editor
 
