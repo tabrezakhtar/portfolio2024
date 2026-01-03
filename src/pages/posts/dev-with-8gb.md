@@ -112,7 +112,7 @@ This isn't an issue generally, but it's annoying when watching a YouTube video. 
 
 I found this plugin called <a href="https://chromewebstore.google.com/detail/easy-resume-video-manager/jnnbaimhjkojbpaeaejjdecpljheogcn" target="_blank" rel="noreferrer">Easy Resume</a> that saves the playback position. It works really well and solves this issue.
 
-Also, Chrome extensions work in Edge! There's no reason why they wouldn't as they both use WebKit, but I was surprised that Microsoft allows this.
+Also, Chrome extensions work in Edge! There's no reason why they wouldn't as they both use WebKit, but I was pleasantly surprised that Microsoft allows this.
 
 ### Slack
 The Slack desktop app has become much more efficient, but it still uses a lot of RAM. Its minimum usage is around 500MB!
