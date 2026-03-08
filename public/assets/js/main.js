@@ -115,18 +115,18 @@ window.addEventListener('load', () => {
   /**
    * Hero type effect
    */
-  const typed = select('.typed')
-  if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split('|')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 30,
-      backSpeed: 30,
-      backDelay: 300
-    });
-  }
+  // const typed = select('.typed')
+  // if (typed) {
+  //   let typed_strings = typed.getAttribute('data-typed-items')
+  //   typed_strings = typed_strings.split('|')
+  //   new Typed('.typed', {
+  //     strings: typed_strings,
+  //     loop: true,
+  //     typeSpeed: 30,
+  //     backSpeed: 30,
+  //     backDelay: 300
+  //   });
+  // }
 
   /**
    * Skills animation
