@@ -1,6 +1,7 @@
 ---
 import BlogPost2 from "../../components/BlogPost2.astro";
 const allPosts = await Astro.glob("../../pages/posts/*.md");
+const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 ---
 <section id="bloglist" class="bloglist">
     <div class="container">
@@ -10,7 +11,7 @@ const allPosts = await Astro.glob("../../pages/posts/*.md");
         </div>
         <ul class="nav-menu navbar" style="justify-content: flex-start;">
             {
-                allPosts.map(post => 
+                sortedPosts.map(post => 
                     <BlogPost2 title={post.frontmatter.title} url={post.url} pubDate={post.frontmatter.pubDate}/>
                 )
             }
