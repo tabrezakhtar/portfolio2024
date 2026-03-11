@@ -74,7 +74,8 @@ const searchShows = useCallback((q: string) => {
 ```
 
 This is what happens when the above code runs:
-
+<br>
+`Before`
 <video controls width="600">
   <source src="https://res.cloudinary.com/dx8d5hlk1/video/upload/v1773252187/react-compiler-before_j2jnfi.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -82,7 +83,8 @@ This is what happens when the above code runs:
 
 With the compiler enabled, the code stops making infinite API calls -
 the compiler automatically inserts `useCallback` where needed, so you no longer have to manage memoization by hand.
-
+<br>
+`After`
 <video controls width="600">
   <source src="https://res.cloudinary.com/dx8d5hlk1/video/upload/v1773252186/react-compiler-after_kqb7es.mp4" type="video/mp4">
   Your browser does not support the video tag.
