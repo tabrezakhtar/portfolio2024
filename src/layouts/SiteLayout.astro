@@ -20,7 +20,7 @@ const { pageTitle } = Astro.props;
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/assets/vendor/boxicons/fonts/boxicons.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/vendor/boxicons/fonts/boxicons.woff" as="font" type="font/woff" crossorigin></link>
+  <link rel="preload" href="/assets/vendor/boxicons/fonts/boxicons.woff" as="font" type="font/woff" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
   <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -98,31 +98,16 @@ const { pageTitle } = Astro.props;
   </header>
 
   <section id="home" class="d-flex flex-column justify-content-center align-items-center">
-      <div class="hero-container text-center text-md-start" data-aos="fade-in">
-        <h1 class="mb-4">Tabrez Akhtar</h1>
-        <p class="mb-3 mt-3 stagger-item" style="animation-delay: 0.3s;"><span>Custom Software Development</span></p>
-        <p class="mb-3 stagger-item" style="animation-delay: 0.6s;"><span>Web Applications</span></p>
-        <p class="mb-3 stagger-item" style="animation-delay: 0.9s;"><span>Business Tools and Automation</span></p>
+      <div class="hero-container" data-aos="fade-up" data-aos-delay="100">
+        <h1 class="hero-title">Tabrez Akhtar</h1>
+        <p class="hero-subtitle">Full Stack Developer</p>
+        <div class="hero-tags">
+          <span class="tag">Custom Software</span>
+          <span class="tag">Web Apps</span>
+          <span class="tag">Automation</span>
+        </div>
       </div>
   </section>
-  
-  <style>
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .stagger-item {
-      opacity: 0;
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-  </style>
   
   <main id="main">
     <slot />
