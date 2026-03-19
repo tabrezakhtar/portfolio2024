@@ -6,12 +6,16 @@ description: 'Adding authentication to your app with Clerk, without needing to b
 author: 'Tabrez Akhtar'
 tags: ["Authentication", "Clerk", "React", "JavaScript", "Security", "Frontend", "Next.js"]
 ---
-[Source Code](https://github.com/tabrezakhtar/clerk-nextjs)
+[Source code - Next.js](https://github.com/tabrezakhtar/clerk-nextjs)
+
+[Source code - Android](https://github.com/tabrezakhtar/clerk-expo)
 
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
 - [Introduction](#introduction)
+- [Web (Next.js)](#web-nextjs)
+- [Android](#android)
 - [Setup (Next.js)](#setup-nextjs)
 - [Protecting routes](#protecting-routes)
 - [Page-level protection](#page-level-protection)
@@ -24,6 +28,8 @@ tags: ["Authentication", "Clerk", "React", "JavaScript", "Security", "Frontend",
 
 When I built [rifftales.net](http://rifftales.net), I rolled my own authentication system from scratch. I did this because I knew exactly what I wanted: a simple setup with no external services, no third-party integrations, and full control over the data model. It also turned out to be a great learning exercise - handling sessions, implementing passwordless flows, and thinking through edge cases gave me a much deeper understanding of how authentication actually works.
 
+<img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1773945449/login_bet12n.jpg" alt="Login screen" width="400" style="max-width:100%; height:auto;" />
+
 That said, building custom authentication isn't always the right choice.
 
 For applications requiring production-ready, scalable, and feature-rich authentication without reinventing the wheel, [Clerk](https://clerk.com/) is a strong alternative. It's a complete authentication and user management solution that can be integrated into applications with minimal setup.
@@ -35,6 +41,20 @@ With Clerk:
 - User management, SSO, and security features are available out of the box
 
 It essentially eliminates the need to build and maintain custom authentication systems.
+
+**Demo**
+
+The following videos demonstrate Clerk in action:
+
+&nbsp;
+## Web (Next.js)
+
+<iframe width="850" height="600" src="https://www.youtube.com/embed/n5zw2Z3sVy0?si=IMnRjwVl6Fz9--7J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+&nbsp;
+## Android
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Liu3Y_d5JJc?si=iuovnwzMqAU7DakV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 &nbsp;
 ## Setup (Next.js)
@@ -163,12 +183,6 @@ Additional options include:
 
 - Multiple SSO providers (Google, GitHub, etc.) can be added from the dashboard
 ![Screenshot](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1773930635/4_n5o06z.png)
-
-**In action**
-
-The following demonstrates a complete authentication workflow with the user profile details:
-
-<iframe width="850" height="600" src="https://www.youtube.com/embed/n5zw2Z3sVy0?si=IMnRjwVl6Fz9--7J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 &nbsp;
 ## Mobile support
