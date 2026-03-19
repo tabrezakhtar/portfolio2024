@@ -3,13 +3,37 @@ import BlogPost2 from "../../components/BlogPost2.astro";
 const allPosts = await Astro.glob("../../pages/posts/*.md");
 const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 ---
+<style>
+    .blog-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        justify-content: stretch;
+    }
+
+    @media (min-width: 768px) {
+        .blog-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .blog-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+</style>
+
 <section id="bloglist" class="bloglist">
     <div class="container">
         <div class="section-title">
             <h2>Recent Blogs</h2>
             <p>Some of my thoughts on interesting tech topics.</p>
         </div>
-        <ul class="nav-menu navbar" style="justify-content: flex-start;">
+        <ul class="blog-grid" aria-label="Recent blog posts">
             {
                 sortedPosts.map(post => 
                     <BlogPost2 title={post.frontmatter.title} url={post.url} pubDate={post.frontmatter.pubDate}/>
