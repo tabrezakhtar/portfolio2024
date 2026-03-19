@@ -6,6 +6,8 @@ description: 'Adding authentication to your app with Clerk, without needing to b
 author: 'Tabrez Akhtar'
 tags: ["Authentication", "Clerk", "React", "JavaScript", "Security", "Frontend", "Next.js"]
 ---
+[Source Code](https://github.com/tabrezakhtar/clerk-nextjs)
+
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
