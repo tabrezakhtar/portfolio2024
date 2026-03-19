@@ -182,6 +182,7 @@ Features include:
 Additional options include:
 
 - Multiple SSO providers (Google, GitHub, etc.) can be added from the dashboard
+
 ![Screenshot](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1773930635/4_n5o06z.png)
 
 &nbsp;
