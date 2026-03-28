@@ -93,7 +93,7 @@ The module to model the tennis score is built with a **Test-Driven approach usin
       </p>
     </div>
     {projects.map(project => (
-      <div class="row" data-aos="fade-up" data-aos-delay="100">
+      <div class="row">
         <div class="project__container">
           <div class="lhs">
             <div class="image-gallery">
@@ -152,7 +152,7 @@ The module to model the tennis score is built with a **Test-Driven approach usin
             <div class="project-description" set:html={marked(project.description)} />
             <div class="tech__badges">
               {project.tech.map(t => (
-                <div data-aos="flip-left">
+                <div>
                   <i class={t.icon}></i>
                   <span>{t.name}</span>
                 </div>
