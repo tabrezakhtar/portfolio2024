@@ -55,6 +55,39 @@ window.addEventListener('load', () => {
   }
 });
 
+/**
+ * Activate navbar links on scroll
+ */
+let navbarlinks = select('#navbar .nav-link', true)
+const navbarlinksActive = () => {
+  let position = window.scrollY + 300
+  let viewportHeight = window.innerHeight
+  let documentHeight = document.documentElement.scrollHeight
+  
+  // Check if we're near the bottom of the page
+  let isNearBottom = (window.scrollY + viewportHeight) >= documentHeight - 100
+  
+  navbarlinks.forEach(navbarlink => {
+    if (!navbarlink.hash) return
+    let section = select(navbarlink.hash)
+    if (!section) return
+    
+    let sectionTop = section.offsetTop
+    let sectionBottom = sectionTop + section.offsetHeight
+    
+    // Check if section is in viewport or if it's the last section and we're at bottom
+    if (position >= sectionTop && position < sectionBottom) {
+      navbarlink.classList.add('active')
+    } else if (isNearBottom && navbarlink.hash === '#contact') {
+      navbarlink.classList.add('active')
+    } else {
+      navbarlink.classList.remove('active')
+    }
+  })
+}
+window.addEventListener('load', navbarlinksActive)
+onscroll(document, navbarlinksActive)
+
 
 
 
