@@ -7,7 +7,7 @@ author: 'Tabrez Akhtar'
 tags: ["React", "Redux", "BeerCSS"]
 ---
 I wrote this Tennis score keeper app about 5 years ago in React and Redux and decided to give it a refresh.
-<img src="/assets/img/whatsthescore.png" alt="Old version of whatsthescore app" width="200">
+<img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/f_auto/v1775227131/whatsthescore_qfnlcq.png" alt="Old version of whatsthescore app" width="200">
 
 There were a few issues with my existing project:
 
@@ -105,4 +105,4 @@ The library is only 18.8kb!
 After some fiddling with the markup, this is what the final result looks like🎉
 
 [link](https://whatsthescore.netlify.app/)
-<img src="/assets/img/whatsthescore2025.png" alt="Screenshot of new project" width="200">
+<img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/f_auto/v1775227131/whatsthescore2025_nuo4h8.png" alt="Screenshot of new project" width="200">
