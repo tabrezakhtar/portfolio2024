@@ -368,6 +368,85 @@ The module to model the tennis score is built with a **Test-Driven approach usin
       }
     });
   }
+  
+  // Keyboard navigation for main gallery
+  document.addEventListener('keydown', function(e) {
+    // Check if a modal is open
+    const openModal = document.querySelector('.modal.show');
+    
+    if (openModal) {
+      // Modal is open - handle modal navigation
+      const modalImage = openModal.querySelector('.modal-main-image');
+      if (!modalImage) return;
+      
+      const currentIndex = parseInt(modalImage.getAttribute('data-current-index'));
+      const modalId = openModal.id;
+      const modalIndex = modalId.replace('modal', '');
+      
+      // Find the project data from the modal
+      const prevBtn = openModal.querySelector('.modal-prev-btn');
+      const nextBtn = openModal.querySelector('.modal-next-btn');
+      
+      if (!prevBtn && !nextBtn) return; // Single image, no navigation needed
+      
+      // Extract images array from onclick attribute
+      const onclickAttr = prevBtn ? prevBtn.getAttribute('onclick') : nextBtn.getAttribute('onclick');
+      const imagesMatch = onclickAttr.match(/\[(.*?)\]/);
+      if (!imagesMatch) return;
+      
+      const imagesStr = '[' + imagesMatch[1] + ']';
+      const images = JSON.parse(imagesStr);
+      
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateModalImage(modalImage.id, -1, images);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateModalImage(modalImage.id, 1, images);
+      }
+    } else {
+      // No modal open - handle main gallery navigation
+      // Find the currently visible main image in viewport
+      const mainImages = document.querySelectorAll('.main-image');
+      let activeImage = null;
+      
+      // Find the image that's most visible in the viewport
+      mainImages.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        const isVisible = rect.top >= 0 && rect.top <= window.innerHeight / 2;
+        if (isVisible) {
+          activeImage = img;
+        }
+      });
+      
+      if (!activeImage) return;
+      
+      // Extract images array from the nav button
+      const container = activeImage.closest('.image-gallery');
+      if (!container) return;
+      
+      const prevBtn = container.querySelector('.prev-btn');
+      const nextBtn = container.querySelector('.next-btn');
+      
+      if (!prevBtn && !nextBtn) return; // Single image, no navigation needed
+      
+      // Extract images array from onclick attribute
+      const onclickAttr = prevBtn ? prevBtn.getAttribute('onclick') : nextBtn.getAttribute('onclick');
+      const imagesMatch = onclickAttr.match(/\[(.*?)\]/);
+      if (!imagesMatch) return;
+      
+      const imagesStr = '[' + imagesMatch[1] + ']';
+      const images = JSON.parse(imagesStr);
+      
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateImage(activeImage.id, -1, images);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateImage(activeImage.id, 1, images);
+      }
+    }
+  });
 </script>
 
 
