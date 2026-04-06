@@ -1,2 +1,15 @@
+# Block Bing
+User-agent: Bingbot
+Disallow: /
+
+# Block Yahoo
+User-agent: Slurp
+Disallow: /
+
+# Block DuckDuckGo
+User-agent: DuckDuckBot
+Disallow: /
+
+# Allow all other crawlers
 User-agent: *
 Disallow:
