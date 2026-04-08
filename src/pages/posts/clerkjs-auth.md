@@ -36,8 +36,8 @@ For applications requiring production-ready, scalable, and feature-rich authenti
 
 With Clerk:
 
-- Accounts can be created and the library installed
-- Prebuilt UI components for sign-in/sign-up can be integrated
+- Setup and integration can be completed in minutes
+- Prebuilt UI components handle sign-in/sign-up
 - User management, SSO, and security features are available out of the box
 
 It essentially eliminates the need to build and maintain custom authentication systems.
