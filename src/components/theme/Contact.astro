@@ -4,7 +4,8 @@
   
           <div class="section-title">
             <h2>Contact</h2>
-            <p>Feel free to contact me through this form.</p>
+            <p>Feel free to contact me through this form, or email me directly at:
+            <span id="deferred-email" class="underline opacity-0" data-user="hello" data-domain="melodyapps.co.uk" aria-live="polite"></span>
           </div>
   
           <div class="row">
@@ -60,6 +61,29 @@
             </div>
   
           </div>
+
+          {/* <p class="text-center mt-6 text-slate-400 text-xs sm:text-sm">
+            Or email me directly at:
+            <span id="deferred-email" class="text-indigo-400 hover:text-indigo-300 underline opacity-0" data-user="hello" data-domain="melodyapps.co.uk" aria-live="polite"></span>
+          </p> */}
   
         </div>
       </section><!-- End Contact Section -->
+
+      <script>
+        // Reveal contact email after 2 seconds (obfuscation to deter scrapers)
+        document.addEventListener('DOMContentLoaded', function () {
+          const placeholder = document.getElementById('deferred-email');
+          if (!placeholder) return;
+          setTimeout(() => {
+            const user = placeholder.getAttribute('data-user') || '';
+            const domain = placeholder.getAttribute('data-domain') || '';
+            const email = user + '@' + domain;
+            const a = document.createElement('a');
+            a.href = 'mailto:' + email;
+            a.className = 'text-indigo-400 hover:text-indigo-300 underline';
+            a.textContent = email;
+            placeholder.replaceWith(a);
+          }, 2000);
+        });
+      </script>
