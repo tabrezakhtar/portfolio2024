@@ -1,0 +1,59 @@
+---
+const companies = [
+    { name: "The Big Word", url: "https://res.cloudinary.com/dx8d5hlk1/image/upload/v1778541583/thebigword_pjhf14.webp" },
+    { name: "Sandtable", url: "https://res.cloudinary.com/dx8d5hlk1/image/upload/v1778541582/sandtable_bvhypy.webp" },
+    { name: "Mizaic", url: "https://res.cloudinary.com/dx8d5hlk1/image/upload/v1778541581/mizaic_evuogq.webp" },
+    { name: "Answer Digital", url: "https://res.cloudinary.com/dx8d5hlk1/image/upload/v1778541581/answerdigital_eursew.webp" },
+    { name: "Findmypast", url: "https://res.cloudinary.com/dx8d5hlk1/image/upload/v1778541581/fmp_mpybbw.webp" },
+    { name: "Commonplace", url: "https://res.cloudinary.com/dx8d5hlk1/image/upload/v1778541581/commonplace_ic9frc.webp" },
+    { name: "Core Three", url: "https://res.cloudinary.com/dx8d5hlk1/image/upload/v1778541581/corethree_rgdcqo.webp" }
+];
+---
+
+<div class="row mt-5">
+    <div class="col-lg-12">
+        {/* <h3 class="text-center mb-4">Companies I've Worked With</h3> */}
+        <div class="company-logos">
+            {companies.map((company) => (
+                <div class="company-logo-item">
+                    <img 
+                        src={company.url} 
+                        alt={company.name}
+                    />
+                </div>
+            ))}
+        </div>
+    </div>
+</div>
+
+<style>
+    .company-logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .company-logo-item {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .company-logo-item img {
+        max-height: 80px;
+        max-width: 180px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        transition: all 0.3s ease;
+    }
+    
+    .company-logo-item img:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+</style>
