@@ -71,7 +71,12 @@ a:hover {
   transition: all 0.5s;
   padding: 0 15px;
   background: #040b14;
-  overflow-y: auto;
+  overflow: hidden;
+}
+
+#header .sidebar-shell {
+  height: 100%;
+  min-height: 0;
 }
 
 #header .profile img {

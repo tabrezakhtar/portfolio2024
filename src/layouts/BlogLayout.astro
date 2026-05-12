@@ -63,7 +63,7 @@ const { pageTitle } = Astro.props;
 <body>
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
   <header id="header">
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column sidebar-shell">
       <Avatar />
       <SideMenuBlog />
     </div>
@@ -73,7 +73,7 @@ const { pageTitle } = Astro.props;
     <slot />
   </main>
 
-  <footer id="footer">
+  {/* <footer id="footer">
     <div class="container">
       <div class="copyright">
         &copy; Copyright <strong><span>iPortfolio</span></strong>
@@ -90,7 +90,7 @@ const { pageTitle } = Astro.props;
         <a href="/privacy-policy">Privacy Policy</a>
       </div>
     </div>
-  </footer>
+  </footer> */}
 
   {/* <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> */}
 
