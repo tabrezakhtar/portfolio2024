@@ -158,8 +158,7 @@ Once enabled, the compiler automatically:
   desired
 
 The compiler doesn't replace every optimization decision, but it removes
-most of the tedious, error-prone ones.  I'm genuinely happy it's here.
-It lets me focus on features and logic instead of rendering quirks.
+most of the tedious, error-prone ones. It lets me focus on features and logic instead of rendering quirks.
 
 If you're curious, you can find more details and examples here:
 https://react.dev/learn/react-compiler
