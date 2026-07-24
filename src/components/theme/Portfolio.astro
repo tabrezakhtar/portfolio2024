@@ -107,7 +107,7 @@ The module to model the tennis score is built with a **Test-Driven approach usin
         Here are some of the projects that I am working on now.
       </p>
     </div>
-    {projects.map(project => (
+    {projects.map((project, projectIndex) => (
       <div class="row">
         <div class="project__container">
           <div class="lhs">
@@ -115,13 +115,15 @@ The module to model the tennis score is built with a **Test-Driven approach usin
               {/* Main image display with navigation */}
               <div class="main-image-container">
                 <img 
-                  id={`mainImage${projects.indexOf(project)}`}
+                  id={`mainImage${projectIndex}`}
                   src={project.images[0]} 
                   class="main-image" 
                   alt={`Screenshot of ${project.title}`}
                   data-current-index="0"
                   data-total-images={project.images.length}
-                  onclick={`openCurrentImageModal('modal${projects.indexOf(project)}', 'mainImage${projects.indexOf(project)}', ${JSON.stringify(project.images)})`}
+                  onclick={`openCurrentImageModal('modal${projectIndex}', 'mainImage${projectIndex}', ${JSON.stringify(project.images)})`}
+                  loading={projectIndex === 0 ? "eager" : "lazy"}
+                  decoding="async"
                 />
                 
                 {/* Navigation buttons */}
@@ -129,14 +131,14 @@ The module to model the tennis score is built with a **Test-Driven approach usin
                   <>
                     <button 
                       class="nav-btn prev-btn"
-                      onclick={`navigateImage('mainImage${projects.indexOf(project)}', -1, ${JSON.stringify(project.images)})`}
+                      onclick={`navigateImage('mainImage${projectIndex}', -1, ${JSON.stringify(project.images)})`}
                       aria-label="Previous image"
                     >
                       <i class="bx bx-chevron-left"></i>
                     </button>
                     <button 
                       class="nav-btn next-btn"
-                      onclick={`navigateImage('mainImage${projects.indexOf(project)}', 1, ${JSON.stringify(project.images)})`}
+                      onclick={`navigateImage('mainImage${projectIndex}', 1, ${JSON.stringify(project.images)})`}
                       aria-label="Next image"
                     >
                       <i class="bx bx-chevron-right"></i>
@@ -153,7 +155,9 @@ The module to model the tennis score is built with a **Test-Driven approach usin
                       src={img} 
                       class="thumbnail" 
                       alt={`Screenshot ${imgIndex + 1} of ${project.title}`}
-                      onclick={`selectImage('mainImage${projects.indexOf(project)}', '${img}', ${imgIndex})`}
+                      onclick={`selectImage('mainImage${projectIndex}', '${img}', ${imgIndex})`}
+                      loading="lazy"
+                      decoding="async"
                     />
                   ))}
                 </div>
@@ -207,7 +211,7 @@ The module to model the tennis score is built with a **Test-Driven approach usin
             <div class="modal-main-image-container">
               <img 
                 id={`modalImage${index}`}
-                src={project.images[0]} 
+                data-src={project.images[0]} 
                 class="modal-main-image" 
                 alt={`Screenshot of ${project.title}`}
                 data-current-index="0"
@@ -320,6 +324,7 @@ The module to model the tennis score is built with a **Test-Driven approach usin
     const modal = new bootstrap.Modal(document.getElementById(modalId));
     const modalImage = document.querySelector(`#${modalId} .modal-main-image`);
     
+    // Set src now (deferred from data-src to avoid pre-loading)
     modalImage.src = imageSrc;
     modalImage.setAttribute('data-current-index', index);
     
