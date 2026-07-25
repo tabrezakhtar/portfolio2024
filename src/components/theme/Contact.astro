@@ -73,7 +73,7 @@
       <script>
         // Defer Google Maps iframe until after page load
         window.addEventListener('load', function () {
-          const iframe = document.getElementById('maps-iframe');
+          const iframe = document.getElementById('maps-iframe') as HTMLIFrameElement | null;
           if (iframe && iframe.dataset.src) {
             iframe.src = iframe.dataset.src;
           }
