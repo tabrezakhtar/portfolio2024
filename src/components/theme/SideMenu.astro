@@ -1,37 +1,50 @@
-<nav id="navbar" class="nav-menu navbar">
-    <ul>
-        <li>
-            <a href="#home" name="#home" class="nav-link active">
-                <i class="bx bx-home"></i> <span>Home</span>
-            </a>
-        </li>
-        <li>
-            <a href="#about" name="#about" class="nav-link">
-                <i class="bx bx-user"></i> <span>About</span>
-            </a>
-        </li>
-        <li>
-            <a href="#bloglist" name="#bloglist" class="nav-link">
-                <i class="bx bx-edit"></i> <span>Blog</span>
-            </a>
-        </li>
-        <li>
-            <a href="#projects" name="#project" class="nav-link">
-                <i class="bx bx-book-content"></i> <span>Projects</span>
-            </a>
-        </li>
-        <li>
-            <a href="#services" name="#services" class="nav-link">
-                <i class="bx bx-server"></i> <span>Services</span>
-            </a>
-        </li>
-        <li>
-            <a href="#contact" name="#contact" class="nav-link">
-                <i class="bx bx-envelope"></i> <span>Contact</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+<div class="side-menu-content">
+    <nav id="navbar" class="nav-menu navbar">
+        <ul>
+            <li>
+                <a href="#home" name="#home" class="nav-link active">
+                    <i class="bx bx-home"></i> <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#about" name="#about" class="nav-link">
+                    <i class="bx bx-user"></i> <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="#bloglist" name="#bloglist" class="nav-link">
+                    <i class="bx bx-edit"></i> <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="#projects" name="#project" class="nav-link">
+                    <i class="bx bx-book-content"></i> <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="#services" name="#services" class="nav-link">
+                    <i class="bx bx-server"></i> <span>Services</span>
+                </a>
+            </li>
+            <li>
+                <a href="#contact" name="#contact" class="nav-link">
+                    <i class="bx bx-envelope"></i> <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+<style>
+    .side-menu-content {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+
+</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
