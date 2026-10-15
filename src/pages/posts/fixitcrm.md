@@ -9,8 +9,6 @@ tags: ["FixitCRM", "CRM", "Next.js", "React", "TypeScript", "Mantine", "Prisma",
 
 <a href="https://fixit-crm.up.railway.app/"><img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1792085649/fixitcrm-logo_nt0wkg.png" alt="FixitCRM logo" width="250" style="max-width:100%; height:auto;" /></a>
 
-## FixitCRM
-
 I'm building FixitCRM, an open-source CRM designed to help repair shops organise customer, equipment, repair-job, and appointment information in one place.
 
 I'm happy to share an early version while I continue working on it.
