@@ -13,8 +13,6 @@ I'm happy to share an early version of FixitCRM, an open-source CRM I'm building
 
 [Visit FixitCRM](https://fixit-crm.up.railway.app/)
 
-## Technology
-
-FixitCRM is built with Next.js, React, and TypeScript, using Mantine for the interface, Prisma for database access, and PostgreSQL for data storage.
+Built with Next.js, React, and TypeScript, using Mantine for the interface, Prisma for database access, and PostgreSQL for data storage.
 
 [View the source code on GitHub](https://github.com/tabrezakhtar/fixit-crm)
