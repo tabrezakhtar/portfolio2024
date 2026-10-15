@@ -2,27 +2,27 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Introducing FixitCRM'
 pubDate: 2026-10-15
-description: 'Why I am building FixitCRM, a new CRM project focused on making customer work easier to keep organised.'
+description: 'Introducing FixitCRM, an open-source CRM for repair shops.'
 author: 'Tabrez Akhtar'
 tags: ["FixitCRM", "CRM", "Next.js", "React", "TypeScript", "Mantine", "Prisma", "PostgreSQL"]
 ---
 
-<img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1792085649/fixitcrm-logo_nt0wkg.png" alt="FixitCRM logo" width="250" style="max-width:100%; height:auto;" />
+<a href="https://fixit-crm.up.railway.app/"><img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1792085649/fixitcrm-logo_nt0wkg.png" alt="FixitCRM logo" width="250" style="max-width:100%; height:auto;" /></a>
 
 ## FixitCRM
 
-FixitCRM is a work in progress, built to help repair shops organize customer and workshop information.
+I'm building FixitCRM, an open-source CRM designed to help repair shops organise customer, equipment, repair-job, and appointment information in one place.
+
+I'm happy to share an early version while I continue working on it.
 
 [Visit FixitCRM](https://fixit-crm.up.railway.app/)
 
 ## Dashboard
 
-The dashboard brings together repair-job statuses, recent work, items needing attention, and the day's appointment schedule. Separate areas cover customers, equipment, repair jobs, and appointments, giving shops one place to follow their day-to-day work.
+The dashboard provides an overview of repair-job statuses, recent work, items needing attention, and the day's appointments. Separate sections cover customers, equipment, repair jobs, and appointments.
 
 ## Technology
 
-FixitCRM uses Next.js, React, and TypeScript, with Mantine for the interface. Prisma handles database access, and PostgreSQL stores customer, technician, repair-job, and appointment data.
+FixitCRM is built with Next.js, React, and TypeScript, using Mantine for the interface, Prisma for database access, and PostgreSQL for data storage.
 
-## Development status
-
-FixitCRM is a work in progress, and I'll keep you updated as development continues.
+[View the source code on GitHub](https://github.com/tabrezakhtar/fixit-crm)
