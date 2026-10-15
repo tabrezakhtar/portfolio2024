@@ -13,10 +13,6 @@ I'm happy to share an early version of FixitCRM, an open-source CRM I'm building
 
 [Visit FixitCRM](https://fixit-crm.up.railway.app/)
 
-## Dashboard
-
-The dashboard provides an overview of repair-job statuses, recent work, items needing attention, and the day's appointments. Separate sections cover customers, equipment, repair jobs, and appointments.
-
 ## Technology
 
 FixitCRM is built with Next.js, React, and TypeScript, using Mantine for the interface, Prisma for database access, and PostgreSQL for data storage.
