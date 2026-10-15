@@ -7,7 +7,7 @@ author: 'Tabrez Akhtar'
 tags: ["FixitCRM", "CRM", "Next.js", "React", "TypeScript", "Mantine", "Prisma", "PostgreSQL"]
 ---
 
-![FixitCRM logo](https://res.cloudinary.com/dx8d5hlk1/image/upload/v1792085649/fixitcrm-logo_nt0wkg.png)
+<img src="https://res.cloudinary.com/dx8d5hlk1/image/upload/v1792085649/fixitcrm-logo_nt0wkg.png" alt="FixitCRM logo" width="250" style="max-width:100%; height:auto;" />
 
 ## FixitCRM
 
